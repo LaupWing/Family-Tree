@@ -3,17 +3,28 @@ import React, {useRef, useEffect, useCallback} from 'react';
 const Canvas = props =>{
     const canvasRef = useRef(null);
 
-    const draw = useCallback(ctx => {
+    const draw = useCallback((ctx, frameCount) => {
         ctx.fillStyle = '#000000';
         ctx.beginPath();
-        ctx.arc(50, 100, 20, 0, 2*Math.PI);
+        ctx.arc(50, 100, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI);
         ctx.fill();
-    })
+    },[])
     useEffect(() => {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         //Our first draw
-        draw(context);
+        let frameCount = 0;
+        let animationFrameId;
+
+        const render = ()=>{
+            frameCount++;
+            draw(context, frameCount);
+            animationFrameId = window.requestAnimationFrame(render);
+        }
+        render()
+        return()=>{
+            window.cancelAnimationFrame(animationFrameId);
+        }
     }, [draw])
     return <canvas ref={canvasRef} {...props}/>
 }
