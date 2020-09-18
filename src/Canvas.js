@@ -14,7 +14,7 @@ const Canvas = props =>{
         const context = canvas.getContext('2d');
         //Our first draw
         draw(context);
-    }, [])
+    }, [draw])
     return <canvas ref={canvasRef} {...props}/>
 }
 
