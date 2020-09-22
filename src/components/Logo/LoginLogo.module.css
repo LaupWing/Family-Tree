@@ -1,16 +1,16 @@
-.yellow{
-    fill:var(--yellow);
+.yellow {
+	fill: var(--yellow);
 }
-.red-brown{
-    fill:var(--red-brown);
+.red-brown {
+	fill: var(--red-brown);
 }
-.green-yellow{
-    fill:var(--green-yellow);
+.green-yellow {
+	fill: var(--green-yellow);
 }
-.white-strokeBlack{
-    fill:var(--main-color);
-    stroke:var(--font-color);
+.white-strokeBlack {
+	fill: var(--main-color);
+	stroke: var(--font-color);
 }
-.none{
-    fill:none;
+.none {
+	fill: none;
 }
