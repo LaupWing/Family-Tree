@@ -1,7 +1,12 @@
 import React from 'react';
+import Logo from '../components/Logo/LoginLogo';
 
-export default Login = () =>{
-    return <form>
-        
-    </form>
+const Login = () =>{
+    return (
+        <form>
+            <Logo/>
+        </form>
+    );
 }
+
+export default Login;

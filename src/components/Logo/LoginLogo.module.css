@@ -1,10 +1,11 @@
 .yellow{
-    fill:#fdd200;
+    fill:var(--yellow);
 }
 .red-brown{
-    fill:#b01919;
-}.green-yellow{
-    fill:#c9d41a;
+    fill:var(--red-brown);
+}
+.green-yellow{
+    fill:var(--green-yellow);
 }
 .white-strokeBlack{
     fill:#fff;
