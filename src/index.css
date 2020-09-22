@@ -2,4 +2,19 @@
     --yellow: #fdd200;
     --green-yellow: #c9d41a;
     --red-brown:#b01919;
+    --font-color: #1d1d1b;
+    --main-color: #fff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+.App{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

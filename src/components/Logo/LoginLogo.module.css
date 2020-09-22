@@ -8,8 +8,8 @@
     fill:var(--green-yellow);
 }
 .white-strokeBlack{
-    fill:#fff;
-    stroke:#1d1d1b;
+    fill:var(--main-color);
+    stroke:var(--font-color);
 }
 .none{
     fill:none;
