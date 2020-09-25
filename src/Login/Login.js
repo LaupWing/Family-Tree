@@ -13,7 +13,7 @@ const Login = () => {
 			<Logo />
 			<h2>Login</h2>
 			<TextInput placeholder="Email" />
-			<TextInput placeholder="Password" />
+			<TextInput type="password" placeholder="Password" />
 			<Link to="/">
 				<i>Forgot my password</i>
 			</Link>

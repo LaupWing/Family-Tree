@@ -1,13 +1,9 @@
 import React from 'react';
 import styles from './Text.module.css';
 
-const Text = (props) => {
+const Text = ({ placeholder, type = 'text' }) => {
 	return (
-		<input
-			className={styles.input}
-			type="text"
-			placeholder={props.placeholder}
-		/>
+		<input className={styles.input} type={type} placeholder={placeholder} />
 	);
 };
 
