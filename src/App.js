@@ -1,11 +1,14 @@
 import React from 'react';
 import Login from './Login/Login';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
 	return (
-		<div className="App">
-			<Login />
-		</div>
+		<BrowserRouter>
+			<div className="App">
+				<Login />
+			</div>
+		</BrowserRouter>
 	);
 }
 
