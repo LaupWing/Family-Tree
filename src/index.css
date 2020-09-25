@@ -4,6 +4,8 @@
 	--red-brown: #b01919;
 	--font-color: #1d1d1b;
 	--main-color: #fff;
+	--facebook: #4064ac;
+	--google: #d95548;
 }
 * {
 	margin: 0;
@@ -22,4 +24,7 @@
 a {
 	text-decoration: none;
 	color: inherit;
+}
+button {
+	outline: none;
 }

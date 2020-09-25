@@ -32,4 +32,35 @@
 .container p {
 	text-transform: uppercase;
 	text-decoration: underline;
+	margin: 10px 0;
+}
+
+.container .buttons {
+	display: flex;
+	width: 100%;
+	margin-top: 10px;
+}
+.container .buttons button {
+	flex: 1;
+	margin: 2px;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 7px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.25s;
+}
+.container .buttons button:first-of-type {
+	background: var(--facebook);
+}
+.container .buttons button:last-of-type {
+	background: var(--google);
+}
+.container .buttons button:hover {
+	background: var(--yellow);
+}
+.container .buttons button img {
+	width: 20px;
 }
