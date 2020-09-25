@@ -28,3 +28,8 @@
 	text-align: right;
 	width: 100%;
 }
+
+.container p {
+	text-transform: uppercase;
+	text-decoration: underline;
+}

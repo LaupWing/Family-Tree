@@ -15,7 +15,12 @@ const Login = () => {
 			<Link to="/">
 				<i>Forgot my password</i>
 			</Link>
-			<Button content="Login" />
+			<Button type="submit" content="Login" />
+			<p>or</p>
+			<div className={styles.buttons}>
+				<button></button>
+				<button></button>
+			</div>
 		</form>
 	);
 };
