@@ -21,10 +21,10 @@ const Login = () => {
 			<p>or login with</p>
 			<div className={styles.buttons}>
 				<button type="button">
-					<img src={facebook} />
+					<img alt="facebook" src={facebook} />
 				</button>
 				<button type="button">
-					<img src={google} />
+					<img alt="google" src={google} />
 				</button>
 			</div>
 		</form>
