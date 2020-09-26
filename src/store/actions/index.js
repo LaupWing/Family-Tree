@@ -1,0 +1,3 @@
+export {
+	userWatcher
+} from './auth';
