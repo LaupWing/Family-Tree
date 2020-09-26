@@ -1,16 +1,15 @@
 const initialState ={
-	ingredients: null,
-	totalPrice: 4,
-	error: false,
-	building: false
+	name: null,
+	avatar: null,
+	photos: []
 }
 
 const reducer = (state=initialState, action)=>{
 	switch(action.type){
-		case 'actionTypes.ADD_INGREDIENT': return 'addIngredient(state, action)'
+		case 'actionTypes.ADD_INGREDIENT': return 'addIngredient(state, action)';
 		default:
-			return state
+			return state;
 	}
 }
 
-export default reducer
+export default reducer;
