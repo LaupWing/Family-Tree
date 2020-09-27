@@ -7,16 +7,16 @@ const initialState ={
 }
 
 const setUser = (state, user)=>{
-	return {
+	return user ? {
 		...state,
 		name: user.name,
 		avatar: user.url
-	}
+	} : state
 }
 
 const reducer = (state=initialState, action)=>{
 	switch(action.type){
-		case actionTypes.SET_USER: return setUser(state, action);
+		case actionTypes.SET_USER: return setUser(state, action.user);
 		default:
 			return state;
 	}
