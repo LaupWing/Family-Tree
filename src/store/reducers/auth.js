@@ -3,14 +3,14 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState ={
 	name: null,
 	avatar: null,
-	photos: []
+	photos: [],
+	user: null
 }
 
 const setUser = (state, user)=>{
 	return user ? {
 		...state,
-		name: user.name,
-		avatar: user.url
+		user,
 	} : state
 }
 

@@ -5,7 +5,6 @@ import { userWatcher } from './store/actions';
 import { connect } from 'react-redux';
 
 function App(props) {
-	console.log(props.user);
 	props.onUserWatch();
 	return (
 		<BrowserRouter>
@@ -24,7 +23,7 @@ const mapDispatchToProps = dispatch =>{
 
 const mapStateToProps = state =>{
 	return {
-		user: state.user
+		user: state.auth.user
 	};
 }
 
