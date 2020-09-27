@@ -5,7 +5,7 @@ import { userWatcher } from './store/actions';
 import { connect } from 'react-redux';
 
 function App(props) {
-	console.log(props)
+	props.onUserWatch();
 	return (
 		<BrowserRouter>
 			<div className="App">
