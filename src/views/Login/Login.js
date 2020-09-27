@@ -1,12 +1,12 @@
 import React from 'react';
-import Logo from '../components/Logo/LoginLogo';
+import Logo from '../../components/Logo/LoginLogo';
 import styles from './Login.module.css';
-import TextInput from '../components/UI/Inputs/Text/Text';
-import Button from '../components/UI/Button/Button';
+import TextInput from '../../components/UI/Inputs/Text/Text';
+import Button from '../../components/UI/Button/Button';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
-const google = require('../assets/images/google.png');
-const facebook = require('../assets/images/facebook.png');
+const google = require('../../assets/images/google.png');
+const facebook = require('../../assets/images/facebook.png');
 
 const Login = () => {
 	const loginPopup = (e) => {
@@ -18,7 +18,6 @@ const Login = () => {
 				: new firebase.auth.GoogleAuthProvider()
 			)
 	};
-
 	return (
 		<form className={styles.container}>
 			<Logo />
