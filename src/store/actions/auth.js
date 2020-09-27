@@ -2,6 +2,7 @@ import firebase from 'firebase';
 import * as actionTypes from './actionTypes';
 
 const setUser = (user)=>{
+	console.log(user)
 	return {
 		type: actionTypes.SET_USER,
 		user

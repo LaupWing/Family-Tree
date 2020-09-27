@@ -3,7 +3,6 @@ import Login from './Login/Login';
 import { BrowserRouter } from 'react-router-dom';
 import { userWatcher } from './store/actions';
 import { connect } from 'react-redux';
-import firebase from 'firebase';
 
 function App(props) {
 	props.onUserWatch();
