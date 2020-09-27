@@ -1,13 +1,26 @@
 import React from 'react';
 import Login from './views/Login/Login';
-import { BrowserRouter } from 'react-router-dom';
+import Home from './views/Home/Home';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 function App({initialLoad, user}) {
+	let routes = (
+		<Switch>
+			<Route path='/' component={Login}/>
+		</Switch>
+	)
+	if(user){
+		routes = (
+			<Switch>
+				<Route path='/' component={Home}/>
+			</Switch>
+		)
+	}
 	return (
 		initialLoad && (<BrowserRouter>
 			<div className="App">
-				<Login user={user} />
+				{routes}
 			</div>
 		</BrowserRouter>)
 	);
