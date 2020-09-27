@@ -3,21 +3,21 @@ import Login from './views/Login/Login';
 import { BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-function App(props) {
-	console.log(props)
+function App({initialLoad, user}) {
 	return (
-		<BrowserRouter>
+		initialLoad && (<BrowserRouter>
 			<div className="App">
-				<Login />
+				<Login user={user} />
 			</div>
-		</BrowserRouter>
+		</BrowserRouter>)
 	);
 }
 
 
 const mapStateToProps = state =>{
 	return {
-		user: state.auth.user
+		user: state.auth.user,
+		initialLoad: state.auth.initialLoad
 	};
 }
 

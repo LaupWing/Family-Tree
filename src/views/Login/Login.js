@@ -8,7 +8,8 @@ import firebase from 'firebase';
 const google = require('../../assets/images/google.png');
 const facebook = require('../../assets/images/facebook.png');
 
-const Login = () => {
+const Login = ({user}) => {
+	console.log(user)
 	const loginPopup = (e) => {
 		const type = e.target.id;
 		firebase

@@ -4,14 +4,19 @@ const initialState ={
 	name: null,
 	avatar: null,
 	photos: [],
-	user: null
+	user: null,
+	initialLoad: false
 }
 
 const setUser = (state, user)=>{
 	return user ? {
 		...state,
 		user,
-	} : state
+		initialLoad: true
+	} : {
+		...state,
+		initialLoad: true
+	}
 }
 
 const reducer = (state=initialState, action)=>{
