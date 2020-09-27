@@ -1,11 +1,10 @@
 import React from 'react';
 import Login from './views/Login/Login';
 import { BrowserRouter } from 'react-router-dom';
-import { userWatcher } from './store/actions';
 import { connect } from 'react-redux';
 
 function App(props) {
-	props.onUserWatch();
+	console.log(props)
 	return (
 		<BrowserRouter>
 			<div className="App">
@@ -15,11 +14,6 @@ function App(props) {
 	);
 }
 
-const mapDispatchToProps = dispatch =>{
-	return {
-		onUserWatch: () => dispatch(userWatcher())
-	};
-}
 
 const mapStateToProps = state =>{
 	return {
@@ -27,4 +21,4 @@ const mapStateToProps = state =>{
 	};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
