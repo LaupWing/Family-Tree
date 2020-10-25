@@ -22,7 +22,7 @@ const Login = () => {
 	};
 
 	return (
-		<form className={styles.container}>
+		<form onSubmit={(e)=>e.preventDefault()} className={styles.container}>
 			<Logo />
 			<h2>Login</h2>
 			<TextInput placeholder="Email" />
