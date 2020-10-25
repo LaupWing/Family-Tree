@@ -1,26 +1,23 @@
 import React from 'react';
-import Logo from '../components/Logo/LoginLogo';
+import Logo from '../../components/Logo/LoginLogo';
 import styles from './Login.module.css';
-import TextInput from '../components/UI/Inputs/Text/Text';
-import Button from '../components/UI/Button/Button';
+import TextInput from '../../components/UI/Inputs/Text/Text';
+import Button from '../../components/UI/Button/Button';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
-const google = require('../assets/images/google.png');
-const facebook = require('../assets/images/facebook.png');
+const google = require('../../assets/images/google.png');
+const facebook = require('../../assets/images/facebook.png');
 
 const Login = () => {
-	const loginPopup = () => {
+	const loginPopup = (e) => {
+		const type = e.target.id;
 		firebase
 			.auth()
-			.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-			.then(function (result) {
-				console.log(result);
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+			.signInWithPopup(type === 'facebook' 
+				? new firebase.auth.FacebookAuthProvider()
+				: new firebase.auth.GoogleAuthProvider()
+			)
 	};
-
 	return (
 		<form onSubmit={(e)=>e.preventDefault()} className={styles.container}>
 			<Logo />
@@ -33,10 +30,10 @@ const Login = () => {
 			<Button type="submit" content="Login" />
 			<p>or login with</p>
 			<div className={styles.buttons}>
-				<button onClick={loginPopup} type="button">
+				<button id='facebook' onClick={loginPopup} type="button">
 					<img alt="facebook" src={facebook} />
 				</button>
-				<button type="button">
+				<button id='google' onClick={loginPopup} type="button">
 					<img alt="google" src={google} />
 				</button>
 			</div>

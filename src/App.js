@@ -1,15 +1,37 @@
 import React from 'react';
-import Login from './Login/Login';
-import { BrowserRouter } from 'react-router-dom';
+import Login from './views/Login/Login';
+import Home from './views/Home/Home';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function App() {
+function App({initialLoad, user}) {
+	let routes = (
+		<Switch>
+			<Route path='/' component={Login}/>
+		</Switch>
+	)
+	if(user){
+		routes = (
+			<Switch>
+				<Route path='/' component={Home}/>
+			</Switch>
+		)
+	}
 	return (
-		<BrowserRouter>
+		initialLoad && (<BrowserRouter>
 			<div className="App">
-				<Login />
+				{routes}
 			</div>
-		</BrowserRouter>
+		</BrowserRouter>)
 	);
 }
 
-export default App;
+
+const mapStateToProps = state =>{
+	return {
+		user: state.auth.user,
+		initialLoad: state.auth.initialLoad
+	};
+}
+
+export default connect(mapStateToProps)(App);
