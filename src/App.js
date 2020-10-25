@@ -7,19 +7,20 @@ import { connect } from 'react-redux';
 function App({initialLoad, user}) {
 	let routes = (
 		<Switch>
-			<Route path='/' component={Login}/>
+			<Route path='/auth' component={Login}/>
 		</Switch>
 	)
 	if(user){
 		routes = (
 			<Switch>
+				<Route path='/auth' component={Login}/>
 				<Route path='/' component={Home}/>
 			</Switch>
 		)
 	}
 	return (
 		initialLoad && (<BrowserRouter>
-         {!user && <Redirect to="/"/>}
+         {!user ? <Redirect to="/auth"/> : <Redirect to="/"/>}
 			<div className="App">
 				{routes}
 			</div>
