@@ -13,7 +13,7 @@ const Login = () => {
 		const type = e.target.id;
 		firebase
 			.auth()
-			.signInWithPopup(type === 'facebook' 
+			.signInWithRedirect(type === 'facebook' 
 				? new firebase.auth.FacebookAuthProvider()
 				: new firebase.auth.GoogleAuthProvider()
 			)

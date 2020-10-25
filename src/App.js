@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from './views/Login/Login';
 import Home from './views/Home/Home';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 function App({initialLoad, user}) {
@@ -19,6 +19,7 @@ function App({initialLoad, user}) {
 	}
 	return (
 		initialLoad && (<BrowserRouter>
+         {!user && <Redirect to="/"/>}
 			<div className="App">
 				{routes}
 			</div>
