@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from './views/Login/Login';
 import Home from './views/Home/Home';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 function App({initialLoad, user}) {
@@ -19,12 +19,11 @@ function App({initialLoad, user}) {
 		)
 	}
 	return (
-		initialLoad && (<BrowserRouter>
+		initialLoad && 
+      <div className="App">
          {!user ? <Redirect to="/auth"/> : <Redirect to="/"/>}
-			<div className="App">
-				{routes}
-			</div>
-		</BrowserRouter>)
+         {routes}
+      </div>
 	);
 }
 

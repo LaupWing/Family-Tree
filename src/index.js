@@ -8,6 +8,7 @@ import {createStore, applyMiddleware, combineReducers} from 'redux';
 import authStore from './store/reducers/auth';
 import thunk from 'redux-thunk';
 import { userWatcher } from './store/actions';
+import { BrowserRouter } from 'react-router-dom';
 
 const rootReducer = combineReducers({
 	auth: authStore
@@ -18,9 +19,11 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 store.dispatch(userWatcher())
 ReactDOM.render(
 	<Provider store={store}>
-		<React.StrictMode>
-			<App />
-		</React.StrictMode>
+      <BrowserRouter>
+         <React.StrictMode>
+            <App />
+         </React.StrictMode>
+      </BrowserRouter>
 	</Provider>,
 	document.getElementById('root')
 );
