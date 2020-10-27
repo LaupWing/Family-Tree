@@ -3,6 +3,7 @@ import Login from './views/Login/Login';
 import Home from './views/Home/Home';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Nav from './components/Nav/Nav';
 
 function App({initialLoad, user}) {
 	let routes = (
@@ -21,6 +22,7 @@ function App({initialLoad, user}) {
 	return (
 		initialLoad && 
       <div className="App">
+         {user && <Nav/>}
          {!user ? <Redirect to="/auth"/> : <Redirect to="/"/>}
          {routes}
       </div>

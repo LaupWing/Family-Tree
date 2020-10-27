@@ -15,7 +15,8 @@ const setUser = (state, user)=>{
 		user,
 		initialLoad: true
 	} : {
-		...state,
+      ...state,
+      user,
 		initialLoad: true
 	}
 }
