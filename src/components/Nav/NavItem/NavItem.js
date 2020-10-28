@@ -5,7 +5,7 @@ const NavItem = ({item}) => {
       <div>
          {item.name}
       </div>
-   )
+   );
 }
 
-export default NavItem
+export default NavItem;
