@@ -1,6 +1,7 @@
 import React from 'react';
 import NavItem from './NavItem/NavItem';
 import styles from './Nav.module.css';
+import Logout from '../Icons/Logout/Logout';
 
 const Nav = () => {
    const navItems = [
@@ -28,6 +29,9 @@ const Nav = () => {
    return (
       <nav className={styles.navigation}>
          {navItems}
+         <li className={styles.logout}>
+            <Logout/>
+         </li>
       </nav>
    );
 }
