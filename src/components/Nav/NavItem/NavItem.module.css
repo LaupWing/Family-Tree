@@ -1,5 +1,15 @@
 .navItem{
    padding: 10px 15px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: .25s;
+   height: 50px;
+   cursor: pointer;
+}
+.navItem:hover,
+.navItem.active{
+   background: var(--dark-green-yellow);
 }
 .navItem svg{
    width: 30px;

@@ -7,7 +7,7 @@ const Nav = () => {
       {
          name: 'Home',
          icon: 'Tree',
-         path: '/tree'
+         path: '/'
       },
       {
          name: 'Chats',

@@ -15,7 +15,7 @@ function App({initialLoad, user}) {
 		routes = (
 			<Switch>
 				<Route path='/auth' component={Login}/>
-				<Route path='/' component={Home}/>
+				<Route path='/' component={Home} exact/>
 			</Switch>
 		)
 	}
