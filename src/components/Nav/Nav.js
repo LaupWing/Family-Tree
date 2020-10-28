@@ -1,5 +1,6 @@
 import React from 'react';
 import NavItem from './NavItem/NavItem';
+import styles from './Nav.module.css';
 
 const Nav = () => {
    const navItems = [
@@ -25,7 +26,7 @@ const Nav = () => {
       />
    });
    return (
-      <nav>
+      <nav className={styles.navigation}>
          {navItems}
       </nav>
    );
