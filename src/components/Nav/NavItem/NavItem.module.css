@@ -1,0 +1,9 @@
+.navItem{
+   padding: 10px 15px;
+}
+.navItem svg{
+   width: 30px;
+}
+.navItem svg > *{
+   fill: var(--main-color);
+}

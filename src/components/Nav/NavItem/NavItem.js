@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
+import icons from '../../Icons';
+import styles from './NavItem.module.css';
 
 const NavItem = ({item}) => {
+   const Icon = icons[item.icon];
    return (
-      <div>
-         {item.name}
-      </div>
+      <li className={styles.navItem}>
+         <Icon/>
+      </li>
    );
 }
 
