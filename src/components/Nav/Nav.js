@@ -1,9 +1,12 @@
 import React from 'react';
 import NavItem from './NavItem/NavItem';
 import styles from './Nav.module.css';
+import firebase from 'firebase';
 import Logout from '../Icons/Logout/Logout';
+import {useHistory} from 'react-router-dom';
 
 const Nav = () => {
+   const history = useHistory();
    const navItems = [
       {
          name: 'Home',
@@ -30,7 +33,10 @@ const Nav = () => {
       <nav className={styles.navigation}>
          {navItems}
          <li className={styles.logout}>
-            <Logout/>
+            <Logout handleClick={()=>{
+               firebase.auth().signOut();
+               history.push('/auth');
+            }}/>
          </li>
       </nav>
    );
