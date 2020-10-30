@@ -13,5 +13,5 @@ export default {
    Logout,
    Circle,
    Rect,
-   Mutli
+   Multi
 }
