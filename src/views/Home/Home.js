@@ -12,7 +12,9 @@ const Home = ()=>{
             active={active}
             setActive={setActive}
          />
-         <Canvas/>
+         <Canvas
+            active={active}
+         />
       </div>
    );
 }
