@@ -9,9 +9,15 @@ const Options = () => {
 
    return (
       <div className={styles.options}>
-         <Rect/>
-         <Circle/>
-         <Multi/>
+         <div className={styles.option}>
+            <Rect/>
+         </div>
+         <div className={styles.option}>
+            <Circle/>
+         </div>
+         <div className={styles.option}>
+            <Multi/>
+         </div>
       </div>
    );
 }

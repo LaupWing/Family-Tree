@@ -1,0 +1,15 @@
+.options{
+   position: absolute;
+   top: 0;
+   left: 50%;
+   transform: translateX(-100%);
+}
+.option svg{
+   width: 35px;
+}
+.option svg > *{
+   stroke-miterlimit:10;
+   stroke-width:5px;
+   fill:none;
+   stroke:#000
+}
