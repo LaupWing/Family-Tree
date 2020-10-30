@@ -18,13 +18,15 @@
    transition: .25s;
    border-radius: 5px;
 }
-.option:hover{
+.option:hover,
+.option.active{
    background: var(--green-yellow);
 }
 .option svg{
    width: 35px;
 }
-.option:hover svg > *{
+.option:hover svg > *,
+.option.active svg > *{
    stroke:white;
 }
 .option svg > *{
