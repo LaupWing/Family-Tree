@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styles from './Home.module.css';
-import Options from './Options/Options'
+import Options from './Options/Options';
+import Canvas from './Canvas/Canvas';
 
 const Home = ()=>{
    const [active, setActive] = useState('Rect');
@@ -11,9 +12,7 @@ const Home = ()=>{
             active={active}
             setActive={setActive}
          />
-         <canvas id="canvas" className={styles.canvas}>
-            
-         </canvas>
+         <Canvas/>
       </div>
    );
 }
