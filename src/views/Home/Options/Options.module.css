@@ -2,14 +2,34 @@
    position: absolute;
    top: 0;
    left: 50%;
-   transform: translateX(-100%);
+   transform: translateX(-50%);
+   display: flex;
+   border: solid 2px var(--border-color);
+   border-top: none;
+   border-radius: 0 0 5px 5px;
+}
+.option{
+   width: 50px;
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   transition: .25s;
+   border-radius: 5px;
+}
+.option:hover{
+   background: var(--green-yellow);
 }
 .option svg{
    width: 35px;
 }
+.option:hover svg > *{
+   stroke:white;
+}
 .option svg > *{
    stroke-miterlimit:10;
-   stroke-width:5px;
+   stroke-width:7px;
    fill:none;
    stroke:#000
 }
