@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import styles from './Canvas.module.css';
-import shapes from './shapes';
+import Shape from './Shape/Shape';
 
 const Canvas = ({active}) => {
    const [start, setStart] = useState(false);
    const handleMove = (e)=>{
       if(start){
-         shapes[active](start, e)
+         
       }
    }
 
@@ -16,8 +16,8 @@ const Canvas = ({active}) => {
          className={styles.canvas}
          onMouseDown={(e)=>{
             if(!start){
-               console.log(start)
-               setStart(e)
+               e.persist();
+               setStart(e);
             }
          }}
          onMouseUp={()=>setStart(false)}
