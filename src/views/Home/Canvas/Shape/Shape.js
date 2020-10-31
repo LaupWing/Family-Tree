@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Shape.module.css';
 import allShapes from './shapes';
 
@@ -12,21 +12,34 @@ const Shape = ({
       ctx
    }) => {
    const {left} = canvasRef.current.getBoundingClientRect();
+   const [activeShape, setActiveShape] = useState(null);
+   const offset = 10;
 
    useEffect(()=>{
+      const shape = new allShapes[active](
+         ctx, 
+         start.left-left,
+         start.top,
+         ((moving-left)-(start.left-left)),
+         offset
+      );
       setShapes([...shapes, 
-         new allShapes[active](
-            ctx, 
-            start.left-left,
-            start.top,
-            ((moving-left)-(start.left-left))
-         )
+         shape  
       ]);
+      setActiveShape(shape);
    },[]);
-   useEffect(()=>{
-      console.log(shapes)
-   },[moving]);
 
+   useEffect(()=>{
+      if(activeShape){
+         const updated = shapes.map(x=>{
+            if(x===activeShape){
+               x.dimension = ((moving-left)-(start.left-left));
+            }
+            return x;
+         }) ;
+         setShapes(updated);
+      }
+   },[moving]);
    return (
       <div 
          className={styles.shape}
