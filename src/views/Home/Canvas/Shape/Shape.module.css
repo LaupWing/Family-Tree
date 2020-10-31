@@ -1,4 +1,7 @@
 .shape{
    position: absolute;
+   width: 200px;
+   height: 200px;
+   pointer-events: none;
    border: dotted 1px var(--black);
 }

@@ -24,7 +24,10 @@ const Canvas = ({active}) => {
             onMouseDown={(e)=>{
                if(!start){
                   e.persist();
-                  setStart(e);
+                  setStart({
+                     left: e.clientX,
+                     top: e.clientY
+                  });
                }
             }}
             onMouseUp={()=>{
@@ -33,7 +36,7 @@ const Canvas = ({active}) => {
             }}
             onMouseMove={(e)=>{
                if(start){
-                  setMoving(e);
+                  setMoving(e.clientX);
                }
             }}
          ></canvas>
