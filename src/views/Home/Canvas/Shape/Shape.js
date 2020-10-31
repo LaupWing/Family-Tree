@@ -20,8 +20,7 @@ const Shape = ({
          ctx, 
          start.left-left,
          start.top,
-         ((moving-left)-(start.left-left)),
-         offset
+         ((moving-left)-(start.left-left))
       );
       setShapes([...shapes, 
          shape  
@@ -44,10 +43,10 @@ const Shape = ({
       <div 
          className={styles.shape}
          style={{
-            'left': `${start.left-left}px`,
-            'top': `${start.top}px`,
-            'width': `${(moving-left)-(start.left-left)}px`,
-            'height': `${(moving-left)-(start.left-left)}px`
+            'left': `${(start.left-left)-offset}px`,
+            'top': `${start.top-offset}px`,
+            'width': `${((moving-left)-(start.left-left))+(offset*2)}px`,
+            'height': `${((moving-left)-(start.left-left))+(offset*2)}px`
          }}
       >
          
