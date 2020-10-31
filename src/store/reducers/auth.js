@@ -9,6 +9,7 @@ const initialState ={
 }
 
 const setUser = (state, user)=>{
+   console.log(user.photoURL);
    console.log(user);
 	return user ? {
 		...state,
