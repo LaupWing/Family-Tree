@@ -1,6 +1,6 @@
 .input {
 	padding: 10px;
-	border: solid 1px var(--font-color);
+	border: solid 1px var(--black);
 	border-radius: 5px;
 	width: 100%;
 	margin: 10px 0;
@@ -8,7 +8,7 @@
 }
 
 .input::placeholder {
-	color: var(--font-color);
+	color: var(--black);
 	text-transform: uppercase;
 	font-size: 0.7rem;
 	letter-spacing: 1px;

@@ -4,7 +4,7 @@
    --dark-green-yellow:#a4ac1d;
    --red-brown: #b01919;
    --border-color: #d7d7d7;
-	--font-color: #1d1d1b;
+	--black: #1d1d1b;
 	--main-color: #fff;
 	--facebook: #4064ac;
 	--google: #d95548;
@@ -14,7 +14,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Open Sans', sans-serif;
-	color: var(--font-color);
+	color: var(--black);
 }
 .App {
 	width: 100vw;

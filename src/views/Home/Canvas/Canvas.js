@@ -4,25 +4,31 @@ import Shape from './Shape/Shape';
 
 const Canvas = ({active}) => {
    const [start, setStart] = useState(false);
-   const handleMove = (e)=>{
-      if(start){
-         
-      }
-   }
+   const [moving, setMoving] = useState(false);
 
    return (
-      <canvas 
-         id="canvas" 
-         className={styles.canvas}
-         onMouseDown={(e)=>{
-            if(!start){
-               e.persist();
-               setStart(e);
-            }
-         }}
-         onMouseUp={()=>setStart(false)}
-         onMouseMove={handleMove}
-      ></canvas>
+      <>
+         {(start && moving) && <Shape/>}
+         <canvas 
+            id="canvas" 
+            className={styles.canvas}
+            onMouseDown={(e)=>{
+               if(!start){
+                  e.persist();
+                  setStart(e);
+               }
+            }}
+            onMouseUp={()=>{
+               setStart(false);
+               setMoving(false);
+            }}
+            onMouseMove={(e)=>{
+               if(start){
+                  setMoving(e);
+               }
+            }}
+         ></canvas>
+      </>
    );
 }
 

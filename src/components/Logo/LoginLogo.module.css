@@ -9,7 +9,7 @@
 }
 .white-strokeBlack {
 	fill: var(--main-color);
-	stroke: var(--font-color);
+	stroke: var(--black);
 }
 .none {
 	fill: none;
