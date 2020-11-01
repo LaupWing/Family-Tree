@@ -18,6 +18,7 @@ const Home = ()=>{
             active={active}
             setActive={setActive}
             shapes={shapes}
+            snapshots={snapshots}
          />
          <Canvas
             active={active}

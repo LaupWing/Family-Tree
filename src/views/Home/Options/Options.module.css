@@ -52,8 +52,16 @@
    width: 45px;
    cursor: pointer;
 }
+.snapshot svg.disabled > *{
+   stroke: var(--border-color);
+}
 
 .snapshot svg:hover > *{
    stroke: transparent;
    fill: var(--green-yellow);
+}
+.snapshot svg.disabled:hover > *{
+   stroke: var(--border-color);
+   fill: transparent;
+   cursor: default;
 }
