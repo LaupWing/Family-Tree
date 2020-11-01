@@ -22,7 +22,7 @@ const Home = ()=>{
             setAllSnapshots={setAllSnapshots}
          />
          <Canvas
-            setSnapshot={setSnapshot}
+            setAllSnapshots={setAllSnapshots}
             active={active}
             homeContainer={homeContainer}
          />
