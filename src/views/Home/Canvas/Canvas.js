@@ -5,8 +5,9 @@ import Shape from './Shape/Shape';
 const Canvas = ({
       active, 
       homeContainer, 
-      setAllSnapshots,
+      setSnapshots,
       shapes,
+      snapshots,
       setShapes
    }) => {
    const [start, setStart] = useState(false);
@@ -24,7 +25,7 @@ const Canvas = ({
    }
    const updateSnapshots = ()=>{
       if(!moving && !start){
-         setAllSnapshots(shapes);
+         setSnapshots([...snapshots,shapes]);
       }
    }
    
@@ -34,7 +35,7 @@ const Canvas = ({
       canvasRef.current.height = homeContainer.current.offsetHeight;
    }, [homeContainer]);
 
-   useEffect(updateSnapshots,[shapes]);
+   useEffect(updateSnapshots,[shapes, moving, start]);
 
    update();
    
