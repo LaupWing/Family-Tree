@@ -2,7 +2,7 @@ import React from 'react';
 import icons from '../../../components/Icons';
 import styles from './Options.module.css';
 
-const Options = ({active, setActive}) => {
+const Options = ({active, setActive, snapshots}) => {
    const options = [
       'Rect',
       'Circle',
@@ -13,7 +13,9 @@ const Options = ({active, setActive}) => {
    return (
       <div className={styles.options}>
          <div className={styles.snapshot}>
-            <Forward reverse={true}/>
+            <Forward 
+               reverse={true}
+            />
             <Forward/>
          </div>
          {options.map(x=>{
