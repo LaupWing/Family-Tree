@@ -21,6 +21,13 @@ const Options = ({
       setSnapshot(snapshots[index-1]);
       setShapes(snapshots[index-1]);
    }
+   const forward = ()=>{
+      const index = snapshots.indexOf(snapshot);
+      if((index+1) < (snapshots.length)){
+         setSnapshot(snapshots[index+1]);
+         setShapes(snapshots[index+1]);
+      }
+   }
 
    return (
       <div className={styles.options}>
@@ -41,6 +48,7 @@ const Options = ({
                   styles.disabled :
                   false
                }
+               handleClick={forward}
             />
          </div>
          {options.map(x=>{
