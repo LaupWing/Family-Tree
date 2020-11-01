@@ -6,7 +6,9 @@ const Options = ({
       active, 
       setActive, 
       snapshot, 
-      snapshots
+      snapshots,
+      setSnapshot,
+      setShapes
    }) => {
    const options = [
       'Rect',
@@ -14,6 +16,10 @@ const Options = ({
       'Multi'
    ];
    const Forward = icons['Forward'];
+   const backward = ()=>{
+      const index = snapshots.indexOf(snapshot);
+      setSnapshot(snapshots[index-1]);
+   }
 
    return (
       <div className={styles.options}>
@@ -26,6 +32,7 @@ const Options = ({
                   styles.disabled :
                   false
                }
+               handleClick={backward}
             />
             <Forward
                extraClassname={

@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import styles from './Home.module.css';
 import Options from './Options/Options';
 import Canvas from './Canvas/Canvas';
@@ -20,6 +20,8 @@ const Home = ()=>{
             setActive={setActive}
             snapshot={snapshot}
             snapshots={snapshots}
+            setSnapshot={setSnapshot}
+            setShapes={setShapes}
          />
          <Canvas
             active={active}
