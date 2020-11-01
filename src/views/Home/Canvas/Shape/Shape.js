@@ -1,19 +1,46 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Shape.module.css';
+import allShapes from './shapes';
 
 const Shape = ({
+      active, 
       moving, 
       start, 
       canvasRef,
-      updateShape,
-      newShape
+      setShapes,
+      shapes,
+      ctx
    }) => {
    const {left} = canvasRef.current.getBoundingClientRect();
+   const [activeShape, setActiveShape] = useState(null);
    const offset = 10;
+   const init = ()=>{
+      const shape = new allShapes[active](
+         ctx, 
+         start.left-left,
+         start.top,
+         ((moving-left)-(start.left-left))
+      );
+      setShapes([...shapes, 
+         shape  
+      ]);
+      setActiveShape(shape);
+   }
+   const updateShape =  ()=>{
+      if(activeShape){
+         const updated = shapes.map(x=>{
+            if(x===activeShape){
+               x.dimension = ((moving-left)-(start.left-left));
+            }
+            return x;
+         }) ;
+         setShapes(updated);
+      }
+   }
 
-   useEffect(newShape,[]);
+   useEffect(init,[]);
    useEffect(updateShape,[moving]);
-
+   
    return (
       <div 
          className={styles.shape}

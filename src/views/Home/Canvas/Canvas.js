@@ -1,16 +1,14 @@
 import React, {useState, useRef, useEffect} from 'react';
 import styles from './Canvas.module.css';
 import Shape from './Shape/Shape';
-import allShapes from './Shape/shapes';
 
-const Canvas = ({active, homeContainer, setAllSnapshots}) => {
+const Canvas = ({active, homeContainer}) => {
    const [start, setStart] = useState(false);
    const [moving, setMoving] = useState(false);
    const [ctx, setCtx] = useState(false);
    const [shapes, setShapes] = useState([]);
-   const [activeShape, setActiveShape] = useState(null);
    const canvasRef = useRef(null);
-   
+
    const update = ()=>{
       if(ctx){
          const {height, width} = canvasRef.current.getBoundingClientRect();
@@ -18,32 +16,6 @@ const Canvas = ({active, homeContainer, setAllSnapshots}) => {
          shapes.forEach(shape=>shape.draw());
       }
       requestAnimationFrame(update);
-   }
-   const newShape = ()=>{
-      const {left} = canvasRef.current.getBoundingClientRect();
-      const shape = new allShapes[active](
-         ctx, 
-         start.left-left,
-         start.top,
-         ((moving-left)-(start.left-left))
-      );
-      setShapes([...shapes, 
-         shape  
-      ]);
-      setActiveShape(shape);
-   }
-
-   const updateShape = ()=>{
-      const {left} = canvasRef.current.getBoundingClientRect();
-      if(activeShape){
-         const updated = shapes.map(x=>{
-            if(x===activeShape){
-               x.dimension = ((moving-left)-(start.left-left));
-            }
-            return x;
-         }) ;
-         setShapes(updated);
-      }
    }
    
    useEffect(() => {
@@ -59,9 +31,11 @@ const Canvas = ({active, homeContainer, setAllSnapshots}) => {
             <Shape
                start={start}
                moving={moving}
+               active={active}
                canvasRef={canvasRef}
-               updateShape={updateShape}
-               newShape={newShape}
+               setShapes={setShapes}
+               shapes={shapes}
+               ctx={ctx}
             />
          }
          <canvas 
