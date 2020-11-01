@@ -6,6 +6,7 @@ import Canvas from './Canvas/Canvas';
 const Home = ()=>{
    const [active, setActive] = useState('Rect');
    const [snapshots, setSnapshots] = useState([]);
+   const [snapshot, setSnapshot] = useState([]);
    const [shapes, setShapes] = useState([]);
    const homeContainer = useRef(null);
 
@@ -17,7 +18,7 @@ const Home = ()=>{
          <Options 
             active={active}
             setActive={setActive}
-            shapes={shapes}
+            snapshot={snapshot}
             snapshots={snapshots}
          />
          <Canvas
@@ -26,6 +27,7 @@ const Home = ()=>{
             homeContainer={homeContainer}
             snapshots={snapshots}
             setShapes={setShapes}
+            setSnapshot={setSnapshot}
             setSnapshots={setSnapshots}
          />
       </div>

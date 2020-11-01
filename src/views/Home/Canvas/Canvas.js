@@ -6,6 +6,7 @@ const Canvas = ({
       active, 
       homeContainer, 
       setSnapshots,
+      setSnapshot,
       shapes,
       snapshots,
       setShapes
@@ -26,6 +27,7 @@ const Canvas = ({
    const updateSnapshots = ()=>{
       if(!moving && !start){
          setSnapshots([...snapshots,shapes]);
+         setSnapshot(shapes);
       }
    }
    

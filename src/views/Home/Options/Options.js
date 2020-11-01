@@ -5,7 +5,7 @@ import styles from './Options.module.css';
 const Options = ({
       active, 
       setActive, 
-      shapes, 
+      snapshot, 
       snapshots
    }) => {
    const options = [
@@ -22,14 +22,14 @@ const Options = ({
                reverse={true}
                extraClassname={
                   (snapshots.length === 0 ||
-                  snapshots[0] === shapes ) ? 
+                  snapshots[0] === snapshot ) ? 
                   styles.disabled :
                   false
                }
             />
             <Forward
                extraClassname={
-                  snapshots[snapshots.length-1] === shapes ? 
+                  snapshots[snapshots.length-1] === snapshot ? 
                   styles.disabled :
                   false
                }
