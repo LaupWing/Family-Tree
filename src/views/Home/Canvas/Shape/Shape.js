@@ -26,9 +26,7 @@ const Shape = ({
       ]);
       setActiveShape(shape);
    }
-
-   useEffect(init,[]);
-   useEffect(()=>{
+   const updateShape = ()=>{
       if(activeShape){
          const updated = shapes.map(x=>{
             if(x===activeShape){
@@ -38,7 +36,11 @@ const Shape = ({
          }) ;
          setShapes(updated);
       }
-   },[moving]);
+   }
+
+   useEffect(init,[]);
+   useEffect(updateShape,[moving]);
+
    return (
       <div 
          className={styles.shape}
