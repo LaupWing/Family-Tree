@@ -22,7 +22,7 @@ const Canvas = ({active, homeContainer}) => {
       setCtx(canvasRef.current.getContext('2d'));
       canvasRef.current.width = homeContainer.current.offsetWidth;
       canvasRef.current.height = homeContainer.current.offsetHeight;
-   }, []);
+   }, [homeContainer]);
    update();
    
    return (

@@ -14,8 +14,7 @@ const Shape = ({
    const {left} = canvasRef.current.getBoundingClientRect();
    const [activeShape, setActiveShape] = useState(null);
    const offset = 10;
-
-   useEffect(()=>{
+   const init = ()=>{
       const shape = new allShapes[active](
          ctx, 
          start.left-left,
@@ -26,8 +25,9 @@ const Shape = ({
          shape  
       ]);
       setActiveShape(shape);
-   },[]);
+   }
 
+   useEffect(init,[]);
    useEffect(()=>{
       if(activeShape){
          const updated = shapes.map(x=>{
