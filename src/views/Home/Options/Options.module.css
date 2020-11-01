@@ -33,5 +33,27 @@
    stroke-miterlimit:10;
    stroke-width:7px;
    fill:none;
-   stroke:#000
+   stroke: var(--black);
+}
+
+.snapshot{
+   display: flex;
+   border-right: 2px solid var(--border-color);
+   margin-right: 10px;
+}
+
+.snapshot svg > *{
+   stroke-miterlimit:10;
+   stroke-width:5px;
+   fill:none;
+   stroke: var(--black);
+}
+.snapshot svg{
+   width: 45px;
+   cursor: pointer;
+}
+
+.snapshot svg:hover > *{
+   stroke: transparent;
+   fill: var(--green-yellow);
 }

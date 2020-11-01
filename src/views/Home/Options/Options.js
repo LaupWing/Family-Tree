@@ -12,7 +12,8 @@ const Options = ({active, setActive}) => {
 
    return (
       <div className={styles.options}>
-         <div>
+         <div className={styles.snapshot}>
+            <Forward reverse={true}/>
             <Forward/>
          </div>
          {options.map(x=>{
