@@ -19,6 +19,7 @@ const Options = ({
    const backward = ()=>{
       const index = snapshots.indexOf(snapshot);
       setSnapshot(snapshots[index-1]);
+      setShapes(snapshots[index-1]);
    }
 
    return (

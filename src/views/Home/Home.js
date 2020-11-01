@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef} from 'react';
 import styles from './Home.module.css';
 import Options from './Options/Options';
 import Canvas from './Canvas/Canvas';
