@@ -8,9 +8,13 @@ const Options = ({active, setActive}) => {
       'Circle',
       'Multi'
    ];
+   const Forward = icons['Forward'];
 
    return (
       <div className={styles.options}>
+         <div>
+            <Forward/>
+         </div>
          {options.map(x=>{
             const Cmp = icons[x];
             return (

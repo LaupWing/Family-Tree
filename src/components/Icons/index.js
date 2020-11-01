@@ -5,6 +5,7 @@ import Logout from './Logout/Logout';
 import Circle from './Circle/Circle';
 import Rect from './Rect/Rect';
 import Multi from './Multi/Multi';
+import Forward from './Forward/Forward';
 
 export default {
    Chats,
@@ -13,5 +14,6 @@ export default {
    Logout,
    Circle,
    Rect,
-   Multi
+   Multi,
+   Forward
 }
