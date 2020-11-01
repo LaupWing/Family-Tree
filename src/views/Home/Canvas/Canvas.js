@@ -2,11 +2,16 @@ import React, {useState, useRef, useEffect} from 'react';
 import styles from './Canvas.module.css';
 import Shape from './Shape/Shape';
 
-const Canvas = ({active, homeContainer}) => {
+const Canvas = ({
+      active, 
+      homeContainer, 
+      setAllSnapshots,
+      shapes,
+      setShapes
+   }) => {
    const [start, setStart] = useState(false);
    const [moving, setMoving] = useState(false);
    const [ctx, setCtx] = useState(false);
-   const [shapes, setShapes] = useState([]);
    const canvasRef = useRef(null);
 
    const update = ()=>{
@@ -17,12 +22,20 @@ const Canvas = ({active, homeContainer}) => {
       }
       requestAnimationFrame(update);
    }
+   const updateSnapshots = ()=>{
+      if(!moving && !start){
+         setAllSnapshots(shapes);
+      }
+   }
    
    useEffect(() => {
       setCtx(canvasRef.current.getContext('2d'));
       canvasRef.current.width = homeContainer.current.offsetWidth;
       canvasRef.current.height = homeContainer.current.offsetHeight;
    }, [homeContainer]);
+
+   useEffect(updateSnapshots,[shapes]);
+
    update();
    
    return (
@@ -53,7 +66,6 @@ const Canvas = ({active, homeContainer}) => {
                   });
                }
             }}
-            onClick={()=>console.log(shapes)}
             onMouseUp={()=>{
                setStart(false);
                setMoving(false);
