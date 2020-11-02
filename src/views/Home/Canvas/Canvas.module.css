@@ -1,3 +1,7 @@
 .canvas{
    flex: 1;
 }
+
+.hovering{
+   cursor: pointer;
+}

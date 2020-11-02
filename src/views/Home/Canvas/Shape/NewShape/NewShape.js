@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import styles from './Shape.module.css';
-import allShapes from './shapes';
+import styles from './NewShape.module.css';
+import allShapes from '../shapes';
 
-const Shape = ({
+const NewShape = ({
       active, 
       moving, 
       start, 
@@ -56,4 +56,4 @@ const Shape = ({
    );
 }
 
-export default Shape;
+export default NewShape;

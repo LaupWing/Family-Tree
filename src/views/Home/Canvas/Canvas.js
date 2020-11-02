@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import styles from './Canvas.module.css';
-import Shape from './Shape/Shape';
+import NewShape from './Shape/NewShape/NewShape';
 
 const Canvas = ({
       active, 
@@ -14,6 +14,7 @@ const Canvas = ({
    const [start, setStart] = useState(false);
    const [moving, setMoving] = useState(false);
    const [ctx, setCtx] = useState(false);
+   const [hoverShape, setHoverShape] = useState(false);
    const canvasRef = useRef(null);
 
    const update = ()=>{
@@ -30,6 +31,28 @@ const Canvas = ({
          setSnapshot(shapes);
       }
    }
+   const handleClick = ()=>{
+
+   }
+   const checkHover = (e)=>{
+      const {left} = canvasRef.current.getBoundingClientRect();
+      // eslint-disable-next-line
+      const overAShape = shapes.find(shape=>{
+         if(
+            (e.clientX - left) < (shape.x + shape.dimension) &&
+            e.clientY < (shape.y + shape.dimension) &&
+            e.clientY > shape.y &&
+            (e.clientX-left) > shape.x
+         ){
+            return shape;
+         }
+      });
+      if(overAShape){
+         setHoverShape(overAShape);
+      }else{
+         setHoverShape(false);
+      }
+   }
    
    useEffect(() => {
       setCtx(canvasRef.current.getContext('2d'));
@@ -44,7 +67,7 @@ const Canvas = ({
    return (
       <>
          {(start && moving) && 
-            <Shape
+            <NewShape
                start={start}
                moving={moving}
                active={active}
@@ -59,7 +82,7 @@ const Canvas = ({
             ref={canvasRef}
             width="500"
             height="500"
-            className={styles.canvas}
+            className={`${styles.canvas} ${hoverShape ? styles.hovering : ''}`}
             onMouseDown={(e)=>{
                if(!start){
                   e.persist();
@@ -74,10 +97,12 @@ const Canvas = ({
                setMoving(false);
             }}
             onMouseMove={(e)=>{
+               checkHover(e)
                if(start){
                   setMoving(e.clientX);
                }
             }}
+            onClick={handleClick}
          ></canvas>
       </>
    );
