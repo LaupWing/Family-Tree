@@ -35,7 +35,7 @@ const Canvas = ({
       }
    }
    const handleClick = ()=>{
-      if(hoverShape){
+      if(hoverShape && !editShape){
          setEditShape(hoverShape);
       }
    }
@@ -86,6 +86,8 @@ const Canvas = ({
          {editShape && 
             <EditShape
                editing={editShape}
+               canvasRef={canvasRef}
+               offset={offset}
             />
          }
          <canvas 
@@ -95,6 +97,7 @@ const Canvas = ({
             height="500"
             className={`${styles.canvas} ${hoverShape ? styles.hovering : ''}`}
             onMouseDown={(e)=>{
+               if(editShape)  return
                if(!start){
                   e.persist();
                   setStart({

@@ -4,6 +4,7 @@ export default class Rect{
       this.x = x;
       this.y = y;
       this.dimension = dimension;
+      this.shape = 'Rect';
    }
    draw(){
       this.ctx.beginPath();

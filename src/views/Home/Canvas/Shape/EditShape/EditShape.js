@@ -1,19 +1,16 @@
 import React from 'react';
 import styles from './EditShape.module.css';
 
-const EditShape = () => {
-   // const {left} = canvasRef.current.getBoundingClientRect();
-   // const offset = 10;
-   
+const EditShape = ({offset, editing}) => {
    return (
       <div 
          className={styles.shape}
-         // style={{
-         //    'left': `${(start.left-left)-offset}px`,
-         //    'top': `${start.top-offset}px`,
-         //    'width': `${((moving-left)-(start.left-left))+(offset*2)}px`,
-         //    'height': `${((moving-left)-(start.left-left))+(offset*2)}px`
-         // }}
+         style={{
+            'left': `${(editing.x)-offset}px`,
+            'top': `${editing.y-offset}px`,
+            'width': `${editing.dimension+(offset*2)}px`,
+            'height': `${editing.dimension+(offset*2)}px`
+         }}
       >
          
       </div>
