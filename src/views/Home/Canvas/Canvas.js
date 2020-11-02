@@ -1,6 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
 import styles from './Canvas.module.css';
 import NewShape from './Shape/NewShape/NewShape';
+import EditShape from  './Shape/EditShape/EditShape';
 
 const Canvas = ({
       active, 
@@ -13,6 +14,7 @@ const Canvas = ({
    }) => {
    const [start, setStart] = useState(false);
    const [moving, setMoving] = useState(false);
+   const [editShape, setEditShape] = useState(false);
    const [ctx, setCtx] = useState(false);
    const [hoverShape, setHoverShape] = useState(false);
    const canvasRef = useRef(null);
@@ -32,7 +34,9 @@ const Canvas = ({
       }
    }
    const handleClick = ()=>{
-
+      if(hoverShape){
+         setEditShape(hoverShape);
+      }
    }
    const checkHover = (e)=>{
       const {left} = canvasRef.current.getBoundingClientRect();
@@ -75,6 +79,11 @@ const Canvas = ({
                setShapes={setShapes}
                shapes={shapes}
                ctx={ctx}
+            />
+         }
+         {editShape && 
+            <EditShape
+               editing={editShape}
             />
          }
          <canvas 
