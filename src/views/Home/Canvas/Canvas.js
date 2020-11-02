@@ -18,6 +18,7 @@ const Canvas = ({
    const [ctx, setCtx] = useState(false);
    const [hoverShape, setHoverShape] = useState(false);
    const canvasRef = useRef(null);
+   const offset = 10;
 
    const update = ()=>{
       if(ctx){
@@ -79,6 +80,7 @@ const Canvas = ({
                setShapes={setShapes}
                shapes={shapes}
                ctx={ctx}
+               offset={offset}
             />
          }
          {editShape && 

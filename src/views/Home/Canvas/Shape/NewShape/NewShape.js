@@ -9,11 +9,12 @@ const NewShape = ({
       canvasRef,
       setShapes,
       shapes,
-      ctx
+      ctx,
+      offset
    }) => {
    const {left} = canvasRef.current.getBoundingClientRect();
    const [activeShape, setActiveShape] = useState(null);
-   const offset = 10;
+   
    const init = ()=>{
       const shape = new allShapes[active](
          ctx, 
