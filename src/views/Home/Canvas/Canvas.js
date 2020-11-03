@@ -111,6 +111,8 @@ const Canvas = ({
                setEditShape={setEditShape}
                canvasRef={canvasRef}
                offset={offset}
+               start={start}
+               setStart={setStart}
             />
          }
          <canvas 

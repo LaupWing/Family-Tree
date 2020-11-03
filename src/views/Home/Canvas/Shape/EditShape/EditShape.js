@@ -4,11 +4,14 @@ import styles from './EditShape.module.css';
 const EditShape = ({
       offset, 
       editing,
-      setEditShape
+      setEditShape,
+      start,
+      setStart,
+      canvasRef
    }) => {
-   const [start, setStart] = useState(false);
    const [moving, setMoving] = useState(false);
-   const {x, y} = editing;
+   const {left} = canvasRef.current.getBoundingClientRect();
+   const {top:startTop, left:startLeft} = start;
    
    useEffect(() => {
       if(moving){
@@ -17,10 +20,10 @@ const EditShape = ({
 
          setEditShape({
             ...editing,
-            x:  x + updateLeft,
-            y: y + updateTop
+            x:  startLeft + updateLeft,
+            y: startTop + updateTop
          });
-         console.log({updateLeft, updateTop})
+         console.log({updateLeft, updateTop, startTop, startLeft})
          // console.log(moving)
          // console.log(editing);
       }
@@ -51,7 +54,7 @@ const EditShape = ({
          onMouseMove={(e)=>{
             if(start){
                setMoving({
-                  left: e.clientX,
+                  left: e.clientX - left,
                   top: e.clientY
                });
             }
