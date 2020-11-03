@@ -7,25 +7,23 @@ const EditShape = ({
       setEditShape,
       start,
       setStart,
+      moving,
+      setMoving,
       canvasRef
    }) => {
-   const [moving, setMoving] = useState(false);
    const {left} = canvasRef.current.getBoundingClientRect();
-   const {top:startTop, left:startLeft} = start;
+   const [startPoint, setStartPoint] = useState(false);
    
    useEffect(() => {
       if(moving){
-         const updateLeft = moving.left-start.left;
-         const updateTop = moving.top-start.top;
+         const updateLeft = moving.left-startPoint.left;
+         const updateTop = moving.top-startPoint.top;
 
          setEditShape({
             ...editing,
-            x:  startLeft + updateLeft,
-            y: startTop + updateTop
+            x:  start.left + updateLeft,
+            y: start.top + updateTop
          });
-         console.log({updateLeft, updateTop, startTop, startLeft})
-         // console.log(moving)
-         // console.log(editing);
       }
    }, [moving])
 
@@ -42,8 +40,12 @@ const EditShape = ({
             if(!start){
                e.persist();
                setStart({
-                  left: e.clientX,
-                  top: e.clientY
+                  left: (editing.x)-offset,
+                  top: editing.y-offset
+               });
+               setStartPoint({
+                  left: e.clientX - left - offset,
+                  top: e.clientY - offset
                });
             }
          }}

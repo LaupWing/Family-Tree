@@ -113,6 +113,8 @@ const Canvas = ({
                offset={offset}
                start={start}
                setStart={setStart}
+               moving={moving}
+               setMoving={setMoving}
             />
          }
          <canvas 
@@ -122,8 +124,7 @@ const Canvas = ({
             height="500"
             className={`${styles.canvas} ${hoverShape ? styles.hovering : ''}`}
             onMouseDown={(e)=>{
-               if(editShape)  return
-               if(!start){
+               if(!start && !editShape){
                   e.persist();
                   setStart({
                      left: e.clientX,
@@ -137,7 +138,7 @@ const Canvas = ({
             }}
             onMouseMove={(e)=>{
                checkHover(e);
-               if(start){
+               if(start && !editShape){
                   setMoving(e.clientX);
                }
             }}
