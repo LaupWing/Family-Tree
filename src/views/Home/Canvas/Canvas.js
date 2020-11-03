@@ -34,15 +34,37 @@ const Canvas = ({
          setSnapshot(shapes);
       }
    }
-   const handleClick = ()=>{
+   const handleClick = (e)=>{
       if(hoverShape && !editShape){
          setEditShape(hoverShape);
       }
+      if(editShape){
+         const {left} = canvasRef.current.getBoundingClientRect();
+         if(
+            (e.clientX - left) > (editShape.x + editShape.dimension + offset) ||
+            e.clientY > (editShape.y + editShape.dimension + offset) ||
+            e.clientY < editShape.y -offset ||
+            (e.clientX-left) < editShape.x - offset
+            ){
+               setEditShape(false);
+            }
+      }
    }
    const checkHover = (e)=>{
+      if(start)   return;
       const {left} = canvasRef.current.getBoundingClientRect();
       // eslint-disable-next-line
       const overAShape = shapes.find(shape=>{
+         if(editShape){
+            if(
+               (e.clientX - left) < (shape.x + shape.dimension + offset) &&
+               e.clientY < (shape.y + shape.dimension + offset) &&
+               e.clientY > shape.y - offset &&
+               (e.clientX-left) > shape.x - offset
+            ){
+               return shape;
+            }
+         }
          if(
             (e.clientX - left) < (shape.x + shape.dimension) &&
             e.clientY < (shape.y + shape.dimension) &&
