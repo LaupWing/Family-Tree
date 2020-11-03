@@ -108,6 +108,7 @@ const Canvas = ({
          {editShape && 
             <EditShape
                editing={editShape}
+               setEditShape={setEditShape}
                canvasRef={canvasRef}
                offset={offset}
             />
@@ -133,7 +134,7 @@ const Canvas = ({
                setMoving(false);
             }}
             onMouseMove={(e)=>{
-               checkHover(e)
+               checkHover(e);
                if(start){
                   setMoving(e.clientX);
                }

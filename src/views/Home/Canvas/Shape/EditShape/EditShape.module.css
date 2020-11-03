@@ -1,5 +1,5 @@
 .shape{
    position: absolute;
-   pointer-events: none;
+   cursor: pointer;
    border: dotted 1px var(--black);
 }
