@@ -13,19 +13,20 @@ const EditShape = ({
    }) => {
    const {left} = canvasRef.current.getBoundingClientRect();
    const [startPoint, setStartPoint] = useState(false);
-   
-   useEffect(() => {
+   const update = ()=>{
       if(moving){
          const updateLeft = moving.left-startPoint.left;
          const updateTop = moving.top-startPoint.top;
-
+   
          setEditShape({
             ...editing,
             x:  start.left + updateLeft,
             y: start.top + updateTop
          });
       }
-   }, [moving])
+   }
+
+   useEffect(update, [moving])
 
    return (
       <div 
