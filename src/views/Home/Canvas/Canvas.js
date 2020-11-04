@@ -115,6 +115,8 @@ const Canvas = ({
                setStart={setStart}
                moving={moving}
                setMoving={setMoving}
+               shapes={shapes}
+               setShapes={setShapes}
             />
          }
          <canvas 
