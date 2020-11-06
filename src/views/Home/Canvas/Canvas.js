@@ -23,6 +23,8 @@ const Canvas = ({
 
    const update = ()=>{
       if(ctx){
+         console.log(canvasRef)
+         console.log(shapes)
          const {height, width} = canvasRef.current.getBoundingClientRect();
          ctx.clearRect(0,0, width, height);
          shapes.forEach(shape=>shape.draw());
@@ -31,7 +33,7 @@ const Canvas = ({
    }
    const updateSnapshots = ()=>{
       if(!moving && !start){
-         const copyShapes = shapes.forEach(shape=>{
+         const copyShapes = shapes.map(shape=>{
             return new allShapes[shape.constructor.name](
                shape.ctx,
                shape.x,
@@ -39,7 +41,9 @@ const Canvas = ({
                shape.dimension
             );
          });
-         setSnapshots([...snapshots,shapes]);
+         // console.log(copyShapes)
+         console.log(snapshots)
+         setSnapshots([...snapshots,copyShapes]);
          setSnapshot(shapes);
       }
    }
