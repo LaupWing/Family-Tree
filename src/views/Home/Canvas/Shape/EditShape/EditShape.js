@@ -4,7 +4,6 @@ import styles from './EditShape.module.css';
 const EditShape = ({
       offset, 
       editing,
-      setEditShape,
       start,
       setStart,
       moving,
@@ -27,11 +26,6 @@ const EditShape = ({
             return x;
          });
          setShapes(updated);
-         // setEditShape({
-         //    ...editing,
-         //    x:  start.left + updateLeft,
-         //    y: start.top + updateTop
-         // });
       }
    }
 

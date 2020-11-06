@@ -11,11 +11,12 @@ const Canvas = ({
       setSnapshot,
       shapes,
       snapshots,
-      setShapes
+      setShapes,
+      setEditShape,
+      editShape
    }) => {
    const [start, setStart] = useState(false);
    const [moving, setMoving] = useState(false);
-   const [editShape, setEditShape] = useState(false);
    const [ctx, setCtx] = useState(false);
    const [hoverShape, setHoverShape] = useState(false);
    const canvasRef = useRef(null);

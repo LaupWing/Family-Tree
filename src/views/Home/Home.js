@@ -8,6 +8,7 @@ const Home = ()=>{
    const [snapshots, setSnapshots] = useState([]);
    const [snapshot, setSnapshot] = useState([]);
    const [shapes, setShapes] = useState([]);
+   const [editShape, setEditShape] = useState(false);
    const homeContainer = useRef(null);
 
 	return (
@@ -22,11 +23,14 @@ const Home = ()=>{
             snapshots={snapshots}
             setSnapshot={setSnapshot}
             setShapes={setShapes}
+            setEditShape={setEditShape}
          />
          <Canvas
             active={active}
             shapes={shapes}
             homeContainer={homeContainer}
+            editShape={editShape}
+            setEditShape={setEditShape}
             snapshots={snapshots}
             setShapes={setShapes}
             setSnapshot={setSnapshot}

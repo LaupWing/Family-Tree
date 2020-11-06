@@ -8,7 +8,8 @@ const Options = ({
       snapshot, 
       snapshots,
       setSnapshot,
-      setShapes
+      setShapes,
+      setEditShape
    }) => {
    const options = [
       'Rect',
@@ -18,6 +19,7 @@ const Options = ({
    const Forward = icons['Forward'];
    const backward = ()=>{
       const index = snapshots.indexOf(snapshot);
+      setEditShape(false);
       if(index!==0){
          setSnapshot(snapshots[index-1]);
          setShapes(snapshots[index-1]);
@@ -25,6 +27,7 @@ const Options = ({
    }
    const forward = ()=>{
       const index = snapshots.indexOf(snapshot);
+      setEditShape(false);
       if((index+1) < (snapshots.length)){
          setSnapshot(snapshots[index+1]);
          setShapes(snapshots[index+1]);
