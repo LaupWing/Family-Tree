@@ -20,11 +20,9 @@ const Canvas = ({
    const [hoverShape, setHoverShape] = useState(false);
    const canvasRef = useRef(null);
    const offset = 10;
-
+   
    const update = ()=>{
       if(ctx){
-         console.log(canvasRef)
-         console.log(shapes)
          const {height, width} = canvasRef.current.getBoundingClientRect();
          ctx.clearRect(0,0, width, height);
          shapes.forEach(shape=>shape.draw());
@@ -41,10 +39,9 @@ const Canvas = ({
                shape.dimension
             );
          });
-         // console.log(copyShapes)
-         console.log(snapshots)
+         
          setSnapshots([...snapshots,copyShapes]);
-         setSnapshot(shapes);
+         setSnapshot(copyShapes);
       }
    }
    const handleClick = (e)=>{
