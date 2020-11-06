@@ -39,7 +39,6 @@ const Canvas = ({
                shape.dimension
             );
          });
-         console.log(copyShapes);
          setSnapshots([...snapshots,shapes]);
          setSnapshot(shapes);
       }
