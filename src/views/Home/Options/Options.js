@@ -18,8 +18,10 @@ const Options = ({
    const Forward = icons['Forward'];
    const backward = ()=>{
       const index = snapshots.indexOf(snapshot);
-      setSnapshot(snapshots[index-1]);
-      setShapes(snapshots[index-1]);
+      if(index!==0){
+         setSnapshot(snapshots[index-1]);
+         setShapes(snapshots[index-1]);
+      }
    }
    const forward = ()=>{
       const index = snapshots.indexOf(snapshot);

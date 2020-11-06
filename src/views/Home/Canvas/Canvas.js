@@ -2,6 +2,7 @@ import React, {useState, useRef, useEffect} from 'react';
 import styles from './Canvas.module.css';
 import NewShape from './Shape/NewShape/NewShape';
 import EditShape from  './Shape/EditShape/EditShape';
+import allShapes from './Shape/shapes';
 
 const Canvas = ({
       active, 
@@ -30,6 +31,15 @@ const Canvas = ({
    }
    const updateSnapshots = ()=>{
       if(!moving && !start){
+         const copyShapes = shapes.forEach(shape=>{
+            return new allShapes[shape.constructor.name](
+               shape.ctx,
+               shape.x,
+               shape.y,
+               shape.dimension
+            );
+         });
+         console.log(copyShapes);
          setSnapshots([...snapshots,shapes]);
          setSnapshot(shapes);
       }
@@ -126,7 +136,7 @@ const Canvas = ({
             height="500"
             className={`${styles.canvas} ${hoverShape ? styles.hovering : ''}`}
             onMouseDown={(e)=>{
-               if(!start && !editShape){
+               if(!start && !editShape && !hoverShape){
                   e.persist();
                   setStart({
                      left: e.clientX,
