@@ -11,6 +11,7 @@ const Canvas = ({
       setSnapshot,
       shapes,
       snapshots,
+      snapshot,
       setShapes,
       setEditShape,
       editShape
@@ -40,7 +41,8 @@ const Canvas = ({
                shape.dimension
             );
          });
-         
+         const exists = snapshotss.find(x=>x===snapshot)
+         console.log(exists)
          setSnapshots([...snapshots,copyShapes]);
          setSnapshot(copyShapes);
       }

@@ -32,6 +32,7 @@ const Home = ()=>{
             editShape={editShape}
             setEditShape={setEditShape}
             snapshots={snapshots}
+            snapshot={snapshot}
             setShapes={setShapes}
             setSnapshot={setSnapshot}
             setSnapshots={setSnapshots}
