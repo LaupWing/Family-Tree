@@ -41,10 +41,18 @@ const Canvas = ({
                shape.dimension
             );
          });
-         const exists = snapshotss.find(x=>x===snapshot)
-         console.log(exists)
-         setSnapshots([...snapshots,copyShapes]);
-         setSnapshot(copyShapes);
+         const index = snapshots.indexOf(snapshot);
+         if(
+            index === -1 ||
+            ((index >= 0) && (snapshots.length-1 === index))
+         ){
+            setSnapshots([...snapshots,copyShapes]);
+            setSnapshot(copyShapes);
+         }else{
+            console.log(snapshots.length);
+            console.log(snapshots);
+            console.log(index);
+         }
       }
    }
    const handleClick = (e)=>{
