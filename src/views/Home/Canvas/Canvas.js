@@ -47,12 +47,10 @@ const Canvas = ({
             ((index >= 0) && (snapshots.length-1 === index))
          ){
             setSnapshots([...snapshots,copyShapes]);
-            setSnapshot(copyShapes);
          }else{
-            console.log(snapshots.length);
-            console.log(snapshots);
-            console.log(index);
+            setSnapshots([...snapshots.splice(index),copyShapes]);
          }
+         setSnapshot(copyShapes);
       }
    }
    const handleClick = (e)=>{
