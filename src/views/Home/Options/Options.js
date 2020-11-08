@@ -14,7 +14,7 @@ const Options = ({
    const options = [
       'Rect',
       'Circle',
-      'Multi'
+      'Hex'
    ];
    const Forward = icons['Forward'];
    const backward = ()=>{

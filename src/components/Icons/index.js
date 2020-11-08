@@ -4,7 +4,7 @@ import Friends from './Friends/Friends';
 import Logout from './Logout/Logout';
 import Circle from './Circle/Circle';
 import Rect from './Rect/Rect';
-import Multi from './Multi/Multi';
+import Hex from './Hex/Hex';
 import Forward from './Forward/Forward';
 
 export default {
@@ -14,6 +14,6 @@ export default {
    Logout,
    Circle,
    Rect,
-   Multi,
+   Hex,
    Forward
 }
