@@ -48,6 +48,7 @@ const Canvas = ({
          ){
             setSnapshots([...snapshots,copyShapes]);
          }else{
+            console.log(snapshots)
             setSnapshots([...snapshots.splice(index),copyShapes]);
          }
          setSnapshot(copyShapes);
