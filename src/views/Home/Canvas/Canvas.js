@@ -42,14 +42,18 @@ const Canvas = ({
             );
          });
          const index = snapshots.indexOf(snapshot);
+         console.log(copyShapes);
+         console.log(snapshots);
+         console.log(index);
+         console.log('-----------');
          if(
             index === -1 ||
             ((index >= 0) && (snapshots.length-1 === index))
          ){
             setSnapshots([...snapshots,copyShapes]);
          }else{
-            console.log(snapshots)
-            setSnapshots([...snapshots.splice(index),copyShapes]);
+            console.log([...snapshots.splice(index),copyShapes]);
+            setSnapshots([...snapshots.splice(-index),copyShapes]);
          }
          setSnapshot(copyShapes);
       }
