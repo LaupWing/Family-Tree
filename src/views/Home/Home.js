@@ -2,6 +2,7 @@ import React, {useState, useRef} from 'react';
 import styles from './Home.module.css';
 import Options from './Options/Options';
 import Canvas from './Canvas/Canvas';
+import Info from './Info/Info';
 
 const Home = ()=>{
    const [active, setActive] = useState('Rect');
@@ -24,6 +25,8 @@ const Home = ()=>{
             setSnapshot={setSnapshot}
             setShapes={setShapes}
             setEditShape={setEditShape}
+         />
+         <Info
          />
          <Canvas
             active={active}

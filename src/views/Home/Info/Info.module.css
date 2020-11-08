@@ -1,0 +1,29 @@
+.info{
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+   border: solid 2px var(--border-color);
+   border-bottom: none;
+   border-radius: 5px 5px 0 0;
+   padding: 10px;
+   display: flex;
+   align-items: center;
+}
+.info h3{
+   font-size: 1rem;
+   margin-right: 10px;
+}
+.field{
+   margin: 0 10px;
+}
+.field input[type="number"]{
+   width: 60px;
+   padding: 2px 5px;
+   padding-right: 0;
+}
+.field label{
+   margin-right: 5px;
+   font-weight: bold;
+}
