@@ -1,4 +1,4 @@
-export default class Circle{
+export default class Hex{
    constructor(ctx, x, y, size){
       this.ctx = ctx;
       this.x = x;
@@ -6,20 +6,18 @@ export default class Circle{
       this.size = size;
    }
    draw(){
-      var canvas = document.querySelector('#canvas').getContext('2d'),
-         side = 0,
-         size = 100,
-         x = 200,
-         y = 200;
-
       this.ctx.beginPath();
-      this.ctx.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
-
-      for (side; side < 7; side++) {
-         canvas.lineTo(x + size * Math.cos(side * 2 * Math.PI / 6), y + size * Math.sin(side * 2 * Math.PI / 6));
+      for (let side = 0; side < 7; side++) {
+         this.ctx.lineTo(
+            (this.x + (this.size/2)) + 
+            (this.size /2) * 
+            Math.cos(side * 2 * Math.PI / 6), 
+            (this.y + (this.size/2)) + 
+            (this.size /2) 
+            * Math.sin(side * 2 * Math.PI / 6)
+         );
       }
 
-      canvas.fillStyle = "#333333";
-      canvas.fill();
+      this.ctx.stroke();
    }
 }
