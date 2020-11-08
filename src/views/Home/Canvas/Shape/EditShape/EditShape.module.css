@@ -2,6 +2,6 @@
    position: absolute;
    cursor: pointer;
    border: dotted 1px var(--black);
-   resize: both;
+   resize: horizontal;
    overflow: auto;
 }

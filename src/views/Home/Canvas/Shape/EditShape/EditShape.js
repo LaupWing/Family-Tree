@@ -1,5 +1,6 @@
 import React, {useState, useEffect, memo} from 'react';
 import styles from './EditShape.module.css';
+import { withResizeDetector } from 'react-resize-detector';
 
 const EditShape = ({
       offset, 
@@ -10,10 +11,13 @@ const EditShape = ({
       setMoving,
       canvasRef,
       shapes,
-      setShapes
+      setShapes,
+      width,
+      targetRef
    }) => {
    const {left} = canvasRef.current.getBoundingClientRect();
    const [startPoint, setStartPoint] = useState(false);
+   const [resizing, setResizing] = useState(false);
    const update = ()=>{
       if(moving){
          const updateLeft = moving.left-startPoint.left;
@@ -29,11 +33,16 @@ const EditShape = ({
       }
    }
 
+   useEffect(()=>{
+      setResizing(true);
+      console.log('width',width)
+   },[width]);
    useEffect(update, [moving])
 
    return (
       <div 
          className={styles.shape}
+         ref={targetRef}
          style={{
             'left': `${(editing.x)-offset}px`,
             'top': `${editing.y-offset}px`,
@@ -41,7 +50,7 @@ const EditShape = ({
             'height': `${editing.size+(offset*2)}px`
          }}
          onMouseDown={(e)=>{
-            if(!start){
+            if(!start && !resizing){
                e.persist();
                setStart({
                   left: (editing.x)-offset,
@@ -71,4 +80,4 @@ const EditShape = ({
    );
 }
 
-export default memo(EditShape);
+export default withResizeDetector(memo(EditShape));

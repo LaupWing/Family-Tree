@@ -1,10 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import styles from './Info.module.css';
 
 const Info = ({editShape}) => {
-   useEffect(()=>{
-      console.log(editShape);
-   },[editShape])
    return (
       <div className={`${styles.info} ${editShape ? styles.show : '' }`}>
          <h3>{editShape ? editShape.constructor.name : 'Shape'}</h3>
