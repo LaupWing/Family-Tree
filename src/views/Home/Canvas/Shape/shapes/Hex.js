@@ -18,7 +18,6 @@ export default class Hex{
          } else {
             this.ctx.lineTo(x_i, y_i); 
          }
-      
       }
       this.ctx.stroke();
    }

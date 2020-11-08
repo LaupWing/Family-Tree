@@ -2,7 +2,7 @@
    position: absolute;
    bottom: 0;
    left: 50%;
-   transform: translateX(-50%);
+   transform: translateX(-50%) translateY(100%);
    display: flex;
    border: solid 2px var(--border-color);
    border-bottom: none;
@@ -10,6 +10,10 @@
    padding: 10px;
    display: flex;
    align-items: center;
+   transition: .5s;
+}
+.info.show{
+   transform: translateX(-50%) translateY(0);
 }
 .info h3{
    font-size: 1rem;
