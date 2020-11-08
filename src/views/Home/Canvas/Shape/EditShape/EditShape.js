@@ -37,8 +37,8 @@ const EditShape = ({
          style={{
             'left': `${(editing.x)-offset}px`,
             'top': `${editing.y-offset}px`,
-            'width': `${editing.dimension+(offset*2)}px`,
-            'height': `${editing.dimension+(offset*2)}px`
+            'width': `${editing.size+(offset*2)}px`,
+            'height': `${editing.size+(offset*2)}px`
          }}
          onMouseDown={(e)=>{
             if(!start){

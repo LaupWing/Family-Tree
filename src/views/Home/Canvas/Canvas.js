@@ -38,7 +38,7 @@ const Canvas = ({
                shape.ctx,
                shape.x,
                shape.y,
-               shape.dimension
+               shape.size
             );
          });
          const index = snapshots.indexOf(snapshot);
@@ -60,8 +60,8 @@ const Canvas = ({
       if(editShape){
          const {left} = canvasRef.current.getBoundingClientRect();
          if(
-            (e.clientX - left) > (editShape.x + editShape.dimension + offset) ||
-            e.clientY > (editShape.y + editShape.dimension + offset) ||
+            (e.clientX - left) > (editShape.x + editShape.size + offset) ||
+            e.clientY > (editShape.y + editShape.size + offset) ||
             e.clientY < editShape.y -offset ||
             (e.clientX-left) < editShape.x - offset
             ){
@@ -76,8 +76,8 @@ const Canvas = ({
       const overAShape = shapes.find(shape=>{
          if(editShape){
             if(
-               (e.clientX - left) < (shape.x + shape.dimension + offset) &&
-               e.clientY < (shape.y + shape.dimension + offset) &&
+               (e.clientX - left) < (shape.x + shape.size + offset) &&
+               e.clientY < (shape.y + shape.size + offset) &&
                e.clientY > shape.y - offset &&
                (e.clientX-left) > shape.x - offset
             ){
@@ -85,8 +85,8 @@ const Canvas = ({
             }
          }
          if(
-            (e.clientX - left) < (shape.x + shape.dimension) &&
-            e.clientY < (shape.y + shape.dimension) &&
+            (e.clientX - left) < (shape.x + shape.size) &&
+            e.clientY < (shape.y + shape.size) &&
             e.clientY > shape.y &&
             (e.clientX-left) > shape.x
          ){

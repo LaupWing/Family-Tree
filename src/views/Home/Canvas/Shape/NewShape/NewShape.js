@@ -31,7 +31,7 @@ const NewShape = ({
       if(activeShape){
          const updated = shapes.map(x=>{
             if(x===activeShape){
-               x.dimension = ((moving-left)-(start.left-left));
+               x.size = ((moving-left)-(start.left-left));
             }
             return x;
          }) ;
