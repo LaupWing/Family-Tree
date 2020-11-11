@@ -1,6 +1,8 @@
 import React, {useState, useEffect, memo} from 'react';
 import styles from './EditShape.module.css';
 import { withResizeDetector } from 'react-resize-detector';
+import Move from '../../../../../components/Icons/Move/Move';
+import Resize from '../../../../../components/Icons/Resize/Resize';
 
 const EditShape = ({
       offset, 
@@ -18,6 +20,8 @@ const EditShape = ({
    const {left} = canvasRef.current.getBoundingClientRect();
    const [startPoint, setStartPoint] = useState(false);
    const [resizing, setResizing] = useState(false);
+   const [resize, setResize] = useState(false);
+
    const update = ()=>{
       if(moving){
          const updateLeft = moving.left-startPoint.left;
@@ -76,7 +80,8 @@ const EditShape = ({
             }
          }}
       >
-         
+      <Resize/>
+      <Move/>
       </div>
    );
 }
