@@ -35,7 +35,8 @@ const EditShape = ({
 
    useEffect(()=>{
       setResizing(true);
-      console.log('width',width)
+      // console.log(editing.size+(offset*2))
+      // console.log(width)
    },[width]);
    useEffect(update, [moving])
 

@@ -6,6 +6,8 @@ import Circle from './Circle/Circle';
 import Rect from './Rect/Rect';
 import Hex from './Hex/Hex';
 import Forward from './Forward/Forward';
+import Resize from './Resize/Resize';
+import Move from './Move/Move';
 
 export default {
    Chats,
@@ -15,5 +17,7 @@ export default {
    Circle,
    Rect,
    Hex,
-   Forward
+   Forward,
+   Resize,
+   Move
 }
