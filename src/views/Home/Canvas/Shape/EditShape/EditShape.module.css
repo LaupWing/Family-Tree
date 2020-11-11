@@ -2,23 +2,23 @@
    position: absolute;
    cursor: pointer;
    border: dotted 1px var(--dark);
-   resize: horizontal;
+   resize: both;
+   overflow: auto;
+   z-index: 1000;
 }
 .shape svg{
    position: absolute;
    top: 0;
    width: 35px;
-   transform: translateY(-100%);
    background: var(--main-color);
-   margin-left: 10px;
    border: dotted 1px var(--dark);
-   border-bottom: none;
+   border-top: none;
+   border-left: none;
    padding: 5px 8px;
    opacity: .2;
 }
 .shape svg:last-of-type{
-   margin-left: 15px;
-   transform: translateY(-100%) translateX(100%);
+   transform: translateX(100%);
 }
 
 .shape svg.active{
