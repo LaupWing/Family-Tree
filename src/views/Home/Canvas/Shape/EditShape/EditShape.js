@@ -19,7 +19,6 @@ const EditShape = ({
    }) => {
    const {left} = canvasRef.current.getBoundingClientRect();
    const [startPoint, setStartPoint] = useState(false);
-   const [resizing, setResizing] = useState(false);
    const [resize, setResize] = useState(false);
 
    const update = ()=>{
@@ -57,9 +56,12 @@ const EditShape = ({
       <div 
          className={styles.shape}
          ref={targetRef}
-         style={pos}
+         style={{
+            ...pos,
+            resize: resize ? 'both' : 'none'
+         }}
          onMouseDown={(e)=>{
-         if(!start && !resizing){
+         if(!start && !resize){
             e.persist();
             setStart({
                      left: (editing.x)-offset,
@@ -92,7 +94,6 @@ const EditShape = ({
                className={resize ? styles.active : ''}
                onClick={()=>{
                   setResize(true)
-                  setResizing(true)
                }}
             />
          </div>
