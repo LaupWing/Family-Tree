@@ -20,7 +20,7 @@ const EditShape = ({
    const {left} = canvasRef.current.getBoundingClientRect();
    const [startPoint, setStartPoint] = useState(false);
    const [resizing, setResizing] = useState(false);
-   const [resize, setResize] = useState(false);
+   const [resize, setResize] = useState(true);
 
    const update = ()=>{
       if(moving){
@@ -80,8 +80,14 @@ const EditShape = ({
             }
          }}
       >
-      <Resize/>
-      <Move/>
+      <Resize 
+         className={resize ? styles.active : ''}
+         onClick={()=>setResize(true)}
+      />
+      <Move 
+         className={!resize ? styles.active : ''}
+         onClick={()=>setResize(false)}
+      />
       </div>
    );
 }

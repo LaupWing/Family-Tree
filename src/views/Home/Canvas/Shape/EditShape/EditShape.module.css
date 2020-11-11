@@ -1,7 +1,7 @@
 .shape{
    position: absolute;
    cursor: pointer;
-   border: dotted 1px var(--black);
+   border: dotted 1px var(--dark);
    resize: horizontal;
 }
 .shape svg{
@@ -11,11 +11,16 @@
    transform: translateY(-100%);
    background: var(--main-color);
    margin-left: 10px;
-   border: dotted 1px;
+   border: dotted 1px var(--dark);
    border-bottom: none;
    padding: 5px 8px;
+   opacity: .2;
 }
 .shape svg:last-of-type{
    margin-left: 15px;
    transform: translateY(-100%) translateX(100%);
+}
+
+.shape svg.active{
+   opacity: 1;
 }
