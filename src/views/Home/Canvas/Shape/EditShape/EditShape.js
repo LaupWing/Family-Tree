@@ -20,8 +20,9 @@ const EditShape = ({
    const {left} = canvasRef.current.getBoundingClientRect();
    const [startPoint, setStartPoint] = useState(false);
    const [resize, setResize] = useState(false);
+   const [resizing, setResizing] = useState(false);
 
-   const update = ()=>{
+   const updatePos = ()=>{
       if(moving){
          const updateLeft = moving.left-startPoint.left;
          const updateTop = moving.top-startPoint.top;
@@ -36,20 +37,30 @@ const EditShape = ({
       }
    }
 
+   const updateSize = ()=>{
+      if(resize){
+         setResizing(width);
+         console.log(resize, width)
+         const updated = shapes.map(x=>{
+            if(x===editing){
+               x.size = width - (offset*2);
+            }
+            return x;
+         });
+         setShapes(updated);
+      }
+   }
+
    const pos =  {
       'left': `${(editing.x)-offset}px`,
       'top': `${editing.y-offset}px`,
-      'width': `${editing.size+(offset*2)}px`,
-      'height': `${editing.size+(offset*2)}px`
+      'width': `${!resizing ? editing.size+(offset*2): resizing}px`,
+      'height': `${!resizing ? editing.size+(offset*2): resizing}px`
    }
    
 
-   useEffect(()=>{
-      // setResizing(true);
-      // console.log(editing.size+(offset*2))
-      // console.log(width)
-   },[width]);
-   useEffect(update, [moving])
+   useEffect(updateSize,[width]);
+   useEffect(updatePos, [moving])
 
 
    return (
@@ -58,45 +69,47 @@ const EditShape = ({
          ref={targetRef}
          style={{
             ...pos,
-            resize: resize ? 'both' : 'none'
+            resize: resize ? 'horizontal' : 'none'
          }}
          onMouseDown={(e)=>{
-         if(!start && !resize){
-            e.persist();
-            setStart({
-                     left: (editing.x)-offset,
-                     top: editing.y-offset
-                  });
-                  setStartPoint({
-                     left: e.clientX - left - offset,
-                     top: e.clientY - offset
-                  });
-               }
+            if(!start && !resize){
+               e.persist();
+               setStart({
+                  left: (editing.x)-offset,
+                  top: editing.y-offset
+               });
+               setStartPoint({
+                  left: e.clientX - left - offset,
+                  top: e.clientY - offset
+               });
+            }
+         }}
+         onMouseUp={()=>{
+            setStart(false);
+            setMoving(false);
+            setResizing(false);
+            // setResize(false);
+         }}
+         onMouseMove={(e)=>{
+            if(start){
+               setMoving({
+                  left: e.clientX - left,
+                  top: e.clientY
+               });
+            }
+         }}
+      >
+         <Move 
+            className={!resize ? styles.active : ''}
+            onClick={()=>setResize(false)}
+         />
+         <Resize 
+            className={resize ? styles.active : ''}
+            onClick={()=>{
+               setResize(true)
             }}
-            onMouseUp={()=>{
-               setStart(false);
-               setMoving(false);
-            }}
-            onMouseMove={(e)=>{
-               if(start){
-                  setMoving({
-                     left: e.clientX - left,
-                     top: e.clientY
-                  });
-               }
-            }}
-         >
-            <Move 
-               className={!resize ? styles.active : ''}
-               onClick={()=>setResize(false)}
-            />
-            <Resize 
-               className={resize ? styles.active : ''}
-               onClick={()=>{
-                  setResize(true)
-               }}
-            />
-         </div>
+         />
+      </div>
    );
 }
 
