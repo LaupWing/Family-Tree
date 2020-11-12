@@ -76,12 +76,12 @@ const EditShape = ({
          className={styles.shape}
          ref={targetRef}
          size={{
-            width: !resizing ? editing.size+(offset*2): resizing,
-            height: !resizing ? editing.size+(offset*2): resizing
+            width: editing.size+(offset*2),
+            height: editing.size+(offset*2)
          }}
          onResize={updateSize}
          onResizeStart={()=>setInitialResize(size)}
-         resizeRatio="1"
+         lockAspectRatio={1/1}
          style={{
             ...pos,
             position: 'absolute',
