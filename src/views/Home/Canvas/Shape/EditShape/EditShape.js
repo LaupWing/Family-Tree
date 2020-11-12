@@ -21,6 +21,7 @@ const EditShape = ({
    const [startPoint, setStartPoint] = useState(false);
    const [resize, setResize] = useState(false);
    const [resizing, setResizing] = useState(false);
+   const [initialResize, setInitialResize] = useState(false);
 
    const updatePos = ()=>{
       if(moving){
@@ -41,18 +42,18 @@ const EditShape = ({
       // console.log(delta)
       // if(resize){
       setResizing(delta.width > 0 ? 
-         delta.width + size.width :
-         delta.height + size.height
+         delta.width + initialResize.width :
+         delta.height + initialResize.height
       );
       console.log(resizing)
-      //    const updated = shapes.map(x=>{
-      //       if(x===editing){
-      //          console.log(x.size+offset*2, width)
-      //          x.size = width - (offset*2);
-      //       }
-      //       return x;
-      //    });
-      //    setShapes(updated);
+      console.log(size)
+         const updated = shapes.map(x=>{
+            if(x===editing){
+               x.size = resizing - (offset*2);
+            }
+            return x;
+         });
+         setShapes(updated);
       // }
    }
 
@@ -62,7 +63,7 @@ const EditShape = ({
    }
    const size = {
       'width': !resizing ? editing.size+(offset*2): resizing,
-      'height': `${!resizing ? editing.size+(offset*2): resizing}px`
+      'height': !resizing ? editing.size+(offset*2): resizing
    }
    
 
@@ -75,9 +76,12 @@ const EditShape = ({
          className={styles.shape}
          ref={targetRef}
          size={{
-            ...size
+            width: !resizing ? editing.size+(offset*2): resizing,
+            height: !resizing ? editing.size+(offset*2): resizing
          }}
          onResize={updateSize}
+         onResizeStart={()=>setInitialResize(size)}
+         resizeRatio="1"
          style={{
             ...pos,
             position: 'absolute',
