@@ -1,7 +1,8 @@
 import React, {useState, useEffect, memo} from 'react';
 import styles from './EditShape.module.css';
-import { withResizeDetector } from 'react-resize-detector';
+// import { withResizeDetector } from 'react-resize-detector';
 import Move from '../../../../../components/Icons/Move/Move';
+import {Resizable} from 're-resizable';
 import Resize from '../../../../../components/Icons/Resize/Resize';
 
 const EditShape = ({
@@ -14,7 +15,6 @@ const EditShape = ({
       canvasRef,
       shapes,
       setShapes,
-      width,
       targetRef
    }) => {
    const {left} = canvasRef.current.getBoundingClientRect();
@@ -37,39 +37,50 @@ const EditShape = ({
       }
    }
 
-   const updateSize = ()=>{
-      if(resize){
-         setResizing(width);
-         console.log(resize, width)
-         const updated = shapes.map(x=>{
-            if(x===editing){
-               x.size = width - (offset*2);
-            }
-            return x;
-         });
-         setShapes(updated);
-      }
+   const updateSize = (_1, _2, _3, delta)=>{
+      // console.log(delta)
+      // if(resize){
+      setResizing(delta.width > 0 ? 
+         delta.width + size.width :
+         delta.height + size.height
+      );
+      console.log(resizing)
+      //    const updated = shapes.map(x=>{
+      //       if(x===editing){
+      //          console.log(x.size+offset*2, width)
+      //          x.size = width - (offset*2);
+      //       }
+      //       return x;
+      //    });
+      //    setShapes(updated);
+      // }
    }
 
    const pos =  {
       'left': `${(editing.x)-offset}px`,
       'top': `${editing.y-offset}px`,
-      'width': `${!resizing ? editing.size+(offset*2): resizing}px`,
+   }
+   const size = {
+      'width': !resizing ? editing.size+(offset*2): resizing,
       'height': `${!resizing ? editing.size+(offset*2): resizing}px`
    }
    
 
-   useEffect(updateSize,[width]);
+   // useEffect(updateSize,[width]);
    useEffect(updatePos, [moving])
 
 
    return (
-      <div 
+      <Resizable 
          className={styles.shape}
          ref={targetRef}
+         size={{
+            ...size
+         }}
+         onResize={updateSize}
          style={{
             ...pos,
-            resize: resize ? 'horizontal' : 'none'
+            position: 'absolute',
          }}
          onMouseDown={(e)=>{
             if(!start && !resize){
@@ -88,7 +99,6 @@ const EditShape = ({
             setStart(false);
             setMoving(false);
             setResizing(false);
-            // setResize(false);
          }}
          onMouseMove={(e)=>{
             if(start){
@@ -98,6 +108,16 @@ const EditShape = ({
                });
             }
          }}
+         enable={{ 
+            top:false, 
+            right:resize, 
+            bottom:resize, 
+            left:false, 
+            topRight:false, 
+            bottomRight:resize, 
+            bottomLeft:false, 
+            topLeft:false 
+         }}
       >
          <Move 
             className={!resize ? styles.active : ''}
@@ -105,12 +125,10 @@ const EditShape = ({
          />
          <Resize 
             className={resize ? styles.active : ''}
-            onClick={()=>{
-               setResize(true)
-            }}
+            onClick={()=>setResize(true)}
          />
-      </div>
+      </Resizable>
    );
 }
 
-export default withResizeDetector(memo(EditShape));
+export default memo(EditShape);

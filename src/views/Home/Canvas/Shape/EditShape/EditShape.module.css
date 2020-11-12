@@ -2,7 +2,6 @@
    position: absolute;
    cursor: pointer;
    border: dotted 1px var(--dark);
-   overflow: auto;
    z-index: 1000;
 }
 .shape svg{
