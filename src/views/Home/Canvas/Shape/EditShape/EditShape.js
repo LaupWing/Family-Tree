@@ -39,22 +39,17 @@ const EditShape = ({
    }
 
    const updateSize = (_1, _2, _3, delta)=>{
-      // console.log(delta)
-      // if(resize){
       setResizing(delta.width > 0 ? 
          delta.width + initialResize.width :
          delta.height + initialResize.height
       );
-      console.log(resizing)
-      console.log(size)
-         const updated = shapes.map(x=>{
-            if(x===editing){
-               x.size = resizing - (offset*2);
-            }
-            return x;
-         });
-         setShapes(updated);
-      // }
+      const updated = shapes.map(x=>{
+         if(x===editing){
+            x.size = resizing - (offset*2);
+         }
+         return x;
+      });
+      setShapes(updated);
    }
 
    const pos =  {
