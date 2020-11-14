@@ -33,6 +33,8 @@ const Info = ({editShape}) => {
             return <Field
                editShape={editShape}
                label={x.label}
+               key={x.label}
+               type={x.type}
                default_val={x.default_val}
             />
          })}

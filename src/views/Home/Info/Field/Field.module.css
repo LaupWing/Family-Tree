@@ -7,6 +7,9 @@
    width: 60px;
    padding: 2px 5px;
    padding-right: 0;
+   border: solid 1px;
+   border-radius: 5px;
+   outline: none;
 }
 .field label{
    margin-right: 5px;
