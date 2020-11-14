@@ -65,7 +65,6 @@ const EditShape = ({
    // useEffect(updateSize,[width]);
    useEffect(updatePos, [moving])
 
-
    return (
       <Resizable 
          className={styles.shape}
