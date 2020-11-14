@@ -61,8 +61,6 @@ const EditShape = ({
       'height': !resizing ? editing.size+(offset*2): resizing
    }
    
-
-   // useEffect(updateSize,[width]);
    useEffect(updatePos, [moving])
 
    return (
@@ -97,6 +95,7 @@ const EditShape = ({
             setStart(false);
             setMoving(false);
             setResizing(false);
+            setInitialResize(false);
          }}
          onMouseMove={(e)=>{
             if(start){
