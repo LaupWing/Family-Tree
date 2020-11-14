@@ -1,7 +1,7 @@
 .shape{
    position: absolute;
    cursor: pointer;
-   border: dotted 1px var(--dark);
+   border: dotted 2px var(--dark);
    z-index: 1000;
 }
 .shape svg{
@@ -9,11 +9,11 @@
    top: 0;
    width: 35px;
    background: var(--main-color);
-   border: dotted 1px var(--dark);
+   border: dotted 2px var(--dark);
    border-top: none;
    border-left: none;
    padding: 5px 8px;
-   opacity: .2;
+   opacity: .3;
 }
 .shape svg:last-of-type{
    transform: translateX(100%);
@@ -24,7 +24,7 @@
 }
 .shape.resize{
    border-right-color: var(--green-yellow);
-   border-right-width: 3px;
+   border-right-width: 4px;
    border-bottom-color: var(--green-yellow);
-   border-bottom-width: 3px;
+   border-bottom-width: 4px;
 }

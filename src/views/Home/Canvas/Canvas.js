@@ -59,14 +59,18 @@ const Canvas = ({
       }
       if(editShape){
          const {left} = canvasRef.current.getBoundingClientRect();
-         if(
-            (e.clientX - left) > (editShape.x + editShape.size + offset) ||
+         const outside = (e.clientX - left) > (editShape.x + editShape.size + offset) ||
             e.clientY > (editShape.y + editShape.size + offset) ||
             e.clientY < editShape.y -offset ||
-            (e.clientX-left) < editShape.x - offset
-            ){
+         (e.clientX-left) < editShape.x - offset;
+         
+         if(outside){
+            if(hoverShape){
+               setEditShape(hoverShape);
+            }else{
                setEditShape(false);
             }
+         }
       }
    }
    const checkHover = (e)=>{

@@ -61,7 +61,10 @@ const Options = ({
             return (
                <div 
                   className={`${styles.option} ${active === x ? styles.active : ''}`}
-                  onClick={()=>setActive(x)}
+                  onClick={()=>{
+                     setActive(x);
+                     setEditShape(false);
+                  }}
                   key={x}
                >
                   <Cmp/>
