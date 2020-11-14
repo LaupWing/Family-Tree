@@ -38,41 +38,6 @@ const Info = ({editShape}) => {
                default_val={x.default_val}
             />
          })}
-         {/* <div className={styles.field}>
-            <label>x:</label>
-            <input 
-               type="number" 
-               value={editShape ? editShape.x : 0}
-            />
-         </div>
-         <div className={styles.field}>
-            <label>y:</label>
-            <input 
-               type="number" 
-               value={editShape ? editShape.y : 0}
-            />
-         </div>
-         <div className={styles.field}>
-            <label>size:</label>
-            <input 
-               type="number" 
-               value={editShape ? editShape.size : 0}
-            />
-         </div>
-         <div className={styles.field}>
-            <label>width:</label>
-            <input 
-               type="number" 
-               value={editShape ? editShape.width : 0}
-            />
-         </div>
-         <div className={styles.field}>
-            <label>color:</label>
-            <input 
-               type="color" 
-               value={editShape ? editShape.color : 'FFFFFF'}
-            />
-         </div> */}
       </div>
    );
 }
