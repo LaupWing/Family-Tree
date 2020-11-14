@@ -20,7 +20,9 @@ const NewShape = ({
          ctx, 
          start.left-left,
          start.top,
-         ((moving-left)-(start.left-left))
+         ((moving-left)-(start.left-left)),
+         'black',
+         1
       );
       setShapes([...shapes, 
          shape  

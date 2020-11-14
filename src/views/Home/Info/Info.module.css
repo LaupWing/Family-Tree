@@ -21,6 +21,8 @@
 }
 .field{
    margin: 0 10px;
+   display: flex;
+   align-items: center;
 }
 .field input[type="number"]{
    width: 60px;

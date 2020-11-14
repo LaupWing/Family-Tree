@@ -38,7 +38,9 @@ const Canvas = ({
                shape.ctx,
                shape.x,
                shape.y,
-               shape.size
+               shape.size,
+               shape.color,
+               shape.width
             );
          });
          const index = snapshots.indexOf(snapshot);

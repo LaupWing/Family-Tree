@@ -26,6 +26,20 @@ const Info = ({editShape}) => {
                value={editShape ? editShape.size : 0}
             />
          </div>
+         <div className={styles.field}>
+            <label>width:</label>
+            <input 
+               type="number" 
+               value={editShape ? editShape.width : 0}
+            />
+         </div>
+         <div className={styles.field}>
+            <label>color:</label>
+            <input 
+               type="color" 
+               value={editShape ? editShape.color : 'FFFFFF'}
+            />
+         </div>
       </div>
    );
 }

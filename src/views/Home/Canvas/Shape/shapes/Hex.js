@@ -1,12 +1,16 @@
 export default class Hex{
-   constructor(ctx, x, y, size){
+   constructor(ctx, x, y, size, color, width){
       this.ctx = ctx;
       this.x = x;
       this.y = y;
       this.size = size;
+      this.color = color;
+      this.width = width;
    }
    draw(){
       this.ctx.beginPath();
+      this.ctx.strokeStyle = this.color;
+      this.ctx.lineWidth = this.width;
       let angle = 0;
 
       for (let i = 0; i <= 6; i++) {
