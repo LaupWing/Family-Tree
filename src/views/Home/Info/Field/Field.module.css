@@ -1,0 +1,14 @@
+.field{
+   margin: 0 10px;
+   display: flex;
+   align-items: center;
+}
+.field input[type="number"]{
+   width: 60px;
+   padding: 2px 5px;
+   padding-right: 0;
+}
+.field label{
+   margin-right: 5px;
+   font-weight: bold;
+}
