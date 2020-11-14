@@ -1,6 +1,5 @@
 import React, {useState, useEffect, memo} from 'react';
 import styles from './EditShape.module.css';
-// import { withResizeDetector } from 'react-resize-detector';
 import Move from '../../../../../components/Icons/Move/Move';
 import {Resizable} from 're-resizable';
 import Resize from '../../../../../components/Icons/Resize/Resize';
@@ -65,7 +64,7 @@ const EditShape = ({
 
    return (
       <Resizable 
-         className={styles.shape}
+         className={`${styles.shape} ${resize ? styles.resize : ''}`}
          ref={targetRef}
          size={{
             width: editing.size+(offset*2),

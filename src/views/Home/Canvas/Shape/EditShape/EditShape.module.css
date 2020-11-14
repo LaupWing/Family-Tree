@@ -22,3 +22,9 @@
 .shape svg.active{
    opacity: 1;
 }
+.shape.resize{
+   border-right-color: var(--green-yellow);
+   border-right-width: 3px;
+   border-bottom-color: var(--green-yellow);
+   border-bottom-width: 3px;
+}
