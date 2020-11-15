@@ -1,6 +1,8 @@
 import React from 'react';
 import icons from '../../../components/Icons';
 import styles from './Options.module.css';
+import { connect } from 'react-redux';
+import * as actionTypes from '../../../store/actions/actionTypes';
 
 const Options = ({
       active, 
@@ -75,4 +77,24 @@ const Options = ({
    );
 }
 
-export default Options;
+const mapStateToProps = state =>{
+	return {
+		snapshot: state.shapes.snapshot,
+		snapshots: state.shapes.snapshots,
+	};
+}
+
+const mapDispatchToProps= dispatch =>{
+   return {
+      setSnapshot: (snapshot) => dispatch({
+         type:actionTypes.SET_SNAPSHOT, 
+         snapshot
+      }),
+      setShapes: (shapes) => dispatch({
+         type:actionTypes.SET_SHAPES, 
+         shapes
+      })
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Options);

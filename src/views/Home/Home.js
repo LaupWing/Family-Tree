@@ -26,10 +26,6 @@ const Home = ({
          <Options 
             active={active}
             setActive={setActive}
-            snapshot={snapshot}
-            snapshots={snapshots}
-            setSnapshot={setSnapshot}
-            setShapes={setShapes}
             setEditShape={setEditShape}
          />
          <Info
