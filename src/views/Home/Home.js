@@ -29,6 +29,7 @@ const Home = ()=>{
          <Info
             editShape={editShape}
             setShapes={setShapes}
+            shapes={shapes}
          />
          <Canvas
             active={active}
