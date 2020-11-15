@@ -14,11 +14,7 @@ const Home = ({
       setSnapshots,
       setShapes
    })=>{
-
    const [active, setActive] = useState('Rect');
-   // const [snapshots, setSnapshots] = useState([]);
-   // const [snapshot, setSnapshot] = useState([]);
-   // const [shapes, setShapes] = useState([]);
    const [editShape, setEditShape] = useState(false);
    const homeContainer = useRef(null);
 
@@ -67,9 +63,18 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps= dispatch =>{
    return {
-      setSnapshots: (snapshots) => dispatch({type:actionTypes.SET_SNAPSHOTS,snapshots}),
-      setSnapshot: (snapshot) => dispatch({type:actionTypes.SET_SNAPSHOT, snapshot}),
-      setShapes: (shapes) => dispatch({type:actionTypes.SET_SHAPES, shapes})
+      setSnapshots: (snapshots) => dispatch({
+         type:actionTypes.SET_SNAPSHOTS,
+         snapshots
+      }),
+      setSnapshot: (snapshot) => dispatch({
+         type:actionTypes.SET_SNAPSHOT, 
+         snapshot
+      }),
+      setShapes: (shapes) => dispatch({
+         type:actionTypes.SET_SHAPES, 
+         shapes
+      })
    }
 }
 
