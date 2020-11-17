@@ -7,8 +7,8 @@ const NewShape = ({
       moving, 
       start, 
       canvasRef,
-      setShapes,
-      shapes,
+      setSnapshot,
+      snapshot,
       ctx,
       offset
    }) => {
@@ -24,20 +24,22 @@ const NewShape = ({
          'black',
          1
       );
-      setShapes([...shapes, 
+      console.log('newshape: init');
+      setSnapshot([...snapshot, 
          shape  
       ]);
       setActiveShape(shape);
    }
    const updateShape =  ()=>{
       if(activeShape){
-         const updated = shapes.map(x=>{
+         const updated = snapshot.map(x=>{
             if(x===activeShape){
                x.size = ((moving-left)-(start.left-left));
             }
             return x;
-         }) ;
-         setShapes(updated);
+         });
+         console.log('newshape: update shape');
+         setSnapshot(updated);
       }
    }
 

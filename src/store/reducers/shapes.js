@@ -19,6 +19,7 @@ const setSnapshots = (state, snapshots)=>{
 	}
 }
 const setSnapshot = (state, snapshot)=>{
+   console.log(snapshot);
 	return {
       ...state,
       snapshot

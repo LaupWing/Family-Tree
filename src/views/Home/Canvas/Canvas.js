@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from 'react';
 import styles from './Canvas.module.css';
 import NewShape from './Shape/NewShape/NewShape';
 import EditShape from  './Shape/EditShape/EditShape';
-import allShapes from './Shape/shapes';
+// import allShapes from './Shape/shapes';
 
 const Canvas = ({
       active, 
@@ -27,33 +27,34 @@ const Canvas = ({
       if(ctx){
          const {height, width} = canvasRef.current.getBoundingClientRect();
          ctx.clearRect(0,0, width, height);
-         shapes.forEach(shape=>shape.draw());
+         snapshot.forEach(shape=>shape.draw());
       }
       requestAnimationFrame(update);
    }
    const updateSnapshots = ()=>{
-      if(!moving && !start){
-         const copyShapes = shapes.map(shape=>{
-            return new allShapes[shape.constructor.name](
-               shape.ctx,
-               shape.x,
-               shape.y,
-               shape.size,
-               shape.color,
-               shape.width
-            );
-         });
-         const index = snapshots.indexOf(snapshot);
-         if(
-            index === -1 ||
-            ((index >= 0) && (snapshots.length-1 === index))
-         ){
-            setSnapshots([...snapshots,copyShapes]);
-         }else{
-            setSnapshots([...snapshots.slice(0, index+1),copyShapes]);
-         }
-         setSnapshot(copyShapes);
-      }
+      // if(!moving && !start){
+      //    const copyShapes = snapshot.map(shape=>{
+      //       return new allShapes[shape.constructor.name](
+      //          shape.ctx,
+      //          shape.x,
+      //          shape.y,
+      //          shape.size,
+      //          shape.color,
+      //          shape.width
+      //       );
+      //    });
+      //    const index = snapshots.indexOf(snapshot);
+      //    console.log('moved');
+      //    if(
+      //       index === -1 ||
+      //       ((index >= 0) && (snapshots.length-1 === index))
+      //    ){
+      //       setSnapshots([...snapshots,copyShapes]);
+      //    }else{
+      //       setSnapshots([...snapshots.slice(0, index+1),copyShapes]);
+      //    }
+      //    setSnapshot(copyShapes);
+      // }
    }
    const handleClick = (e)=>{
       if(hoverShape && !editShape){
@@ -79,7 +80,7 @@ const Canvas = ({
       if(start)   return;
       const {left} = canvasRef.current.getBoundingClientRect();
       // eslint-disable-next-line
-      const overAShape = shapes.find(shape=>{
+      const overAShape = snapshot.find(shape=>{
          if(editShape){
             if(
                (e.clientX - left) < (shape.x + shape.size + offset) &&
@@ -124,8 +125,8 @@ const Canvas = ({
                moving={moving}
                active={active}
                canvasRef={canvasRef}
-               setShapes={setShapes}
-               shapes={shapes}
+               setSnapshot={setSnapshot}
+               snapshot={snapshot}
                ctx={ctx}
                offset={offset}
             />
@@ -140,8 +141,8 @@ const Canvas = ({
                setStart={setStart}
                moving={moving}
                setMoving={setMoving}
-               shapes={shapes}
-               setShapes={setShapes}
+               snapshot={snapshot}
+               setSnapshot={setSnapshot}
             />
          }
          <canvas 
