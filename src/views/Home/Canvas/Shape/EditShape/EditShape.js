@@ -28,6 +28,7 @@ const EditShape = ({
          const updateTop = moving.top-startPoint.top;
          const updated = snapshot.map(x=>{
             if(x===editing){
+               console.log(x);
                x.x = start.left + updateLeft - offset;
                x.y = start.top + updateTop - offset;
             }
