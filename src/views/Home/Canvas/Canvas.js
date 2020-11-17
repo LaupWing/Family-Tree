@@ -27,13 +27,13 @@ const Canvas = ({
       if(ctx){
          const {height, width} = canvasRef.current.getBoundingClientRect();
          ctx.clearRect(0,0, width, height);
-         shapes.forEach(shape=>shape.draw());
+         snapshot.forEach(shape=>shape.draw());
       }
       requestAnimationFrame(update);
    }
    const updateSnapshots = ()=>{
       if(!moving && !start){
-         const copyShapes = shapes.map(shape=>{
+         const copyShapes = snapshot.map(shape=>{
             return new allShapes[shape.constructor.name](
                shape.ctx,
                shape.x,
@@ -124,8 +124,8 @@ const Canvas = ({
                moving={moving}
                active={active}
                canvasRef={canvasRef}
-               setShapes={setShapes}
-               shapes={shapes}
+               setSnapshot={setSnapshot}
+               snapshot={snapshot}
                ctx={ctx}
                offset={offset}
             />
