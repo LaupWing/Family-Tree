@@ -25,7 +25,6 @@ const setSnapshots = (state)=>{
       );
    });
    const index = state.snapshots.indexOf(state.snapshot);
-   console.log('moved');
    if(
       index === -1 ||
       ((index >= 0) && (state.snapshots.length-1 === index))

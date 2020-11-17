@@ -34,7 +34,6 @@ const EditShape = ({
             }
             return x;
          });
-         console.log('update pos');
          setSnapshot(updated);
       }
    }
@@ -51,7 +50,6 @@ const EditShape = ({
          }
          return x;
       });
-      console.log('update size');
       setSnapshot(updated);
    }
 
