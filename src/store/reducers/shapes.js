@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
-import allShapes from '../../';
+import allShapes from '../../helpers/shapes';
 
 const initialState ={
 	shapes: [],
