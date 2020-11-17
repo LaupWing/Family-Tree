@@ -79,7 +79,7 @@ const Canvas = ({
       if(start)   return;
       const {left} = canvasRef.current.getBoundingClientRect();
       // eslint-disable-next-line
-      const overAShape = shapes.find(shape=>{
+      const overAShape = snapshot.find(shape=>{
          if(editShape){
             if(
                (e.clientX - left) < (shape.x + shape.size + offset) &&
@@ -140,8 +140,8 @@ const Canvas = ({
                setStart={setStart}
                moving={moving}
                setMoving={setMoving}
-               shapes={shapes}
-               setShapes={setShapes}
+               snapshot={snapshot}
+               setSnapshot={setSnapshot}
             />
          }
          <canvas 

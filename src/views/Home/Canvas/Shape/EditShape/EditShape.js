@@ -12,8 +12,8 @@ const EditShape = ({
       moving,
       setMoving,
       canvasRef,
-      shapes,
-      setShapes,
+      snapshot,
+      setSnapshot,
       targetRef
    }) => {
    const {left} = canvasRef.current.getBoundingClientRect();
@@ -26,14 +26,14 @@ const EditShape = ({
       if(moving){
          const updateLeft = moving.left-startPoint.left;
          const updateTop = moving.top-startPoint.top;
-         const updated = shapes.map(x=>{
+         const updated = snapshot.map(x=>{
             if(x===editing){
                x.x = start.left + updateLeft - offset;
                x.y = start.top + updateTop - offset;
             }
             return x;
          });
-         setShapes(updated);
+         setSnapshot(updated);
       }
    }
 
@@ -42,13 +42,13 @@ const EditShape = ({
          delta.width + initialResize.width :
          delta.height + initialResize.height
       );
-      const updated = shapes.map(x=>{
+      const updated = snapshot.map(x=>{
          if(x===editing){
             x.size = resizing - (offset*2);
          }
          return x;
       });
-      setShapes(updated);
+      setSnapshot(updated);
    }
 
    const pos =  {
