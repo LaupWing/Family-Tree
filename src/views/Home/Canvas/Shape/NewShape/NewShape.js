@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './NewShape.module.css';
-import allShapes from '../shapes';
+import allShapes from '../../../../../helpers/shapes';
 
 const NewShape = ({
       active, 

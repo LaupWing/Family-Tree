@@ -33,26 +33,26 @@ const Canvas = ({
    }
    const updateSnapshots = ()=>{
       // if(!moving && !start){
-      //    const copyShapes = snapshot.map(shape=>{
-      //       return new allShapes[shape.constructor.name](
-      //          shape.ctx,
-      //          shape.x,
-      //          shape.y,
-      //          shape.size,
-      //          shape.color,
-      //          shape.width
-      //       );
-      //    });
-      //    const index = snapshots.indexOf(snapshot);
-      //    console.log('moved');
-      //    if(
-      //       index === -1 ||
-      //       ((index >= 0) && (snapshots.length-1 === index))
-      //    ){
-      //       setSnapshots([...snapshots,copyShapes]);
-      //    }else{
-      //       setSnapshots([...snapshots.slice(0, index+1),copyShapes]);
-      //    }
+         // const copyShapes = snapshot.map(shape=>{
+         //    return new allShapes[shape.constructor.name](
+         //       shape.ctx,
+         //       shape.x,
+         //       shape.y,
+         //       shape.size,
+         //       shape.color,
+         //       shape.width
+         //    );
+         // });
+         // const index = snapshots.indexOf(snapshot);
+         // console.log('moved');
+         // if(
+         //    index === -1 ||
+         //    ((index >= 0) && (snapshots.length-1 === index))
+         // ){
+         //    setSnapshots([...snapshots,copyShapes]);
+         // }else{
+         //    setSnapshots([...snapshots.slice(0, index+1),copyShapes]);
+         // }
       //    setSnapshot(copyShapes);
       // }
    }
