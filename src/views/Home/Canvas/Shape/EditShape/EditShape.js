@@ -34,6 +34,7 @@ const EditShape = ({
             }
             return x;
          });
+         console.log('update pos');
          setSnapshot(updated);
       }
    }
@@ -45,10 +46,12 @@ const EditShape = ({
       );
       const updated = snapshot.map(x=>{
          if(x===editing){
+            console.log(x)
             x.size = resizing - (offset*2);
          }
          return x;
       });
+      console.log('update size');
       setSnapshot(updated);
    }
 

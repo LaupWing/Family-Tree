@@ -24,6 +24,7 @@ const NewShape = ({
          'black',
          1
       );
+      console.log('newshape: init');
       setSnapshot([...snapshot, 
          shape  
       ]);
@@ -36,7 +37,8 @@ const NewShape = ({
                x.size = ((moving-left)-(start.left-left));
             }
             return x;
-         }) ;
+         });
+         console.log('newshape: update shape');
          setSnapshot(updated);
       }
    }

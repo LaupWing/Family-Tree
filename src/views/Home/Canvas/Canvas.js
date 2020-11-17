@@ -44,6 +44,7 @@ const Canvas = ({
             );
          });
          const index = snapshots.indexOf(snapshot);
+         console.log('moved');
          if(
             index === -1 ||
             ((index >= 0) && (snapshots.length-1 === index))
