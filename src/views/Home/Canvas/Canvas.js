@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from 'react';
 import styles from './Canvas.module.css';
 import NewShape from './Shape/NewShape/NewShape';
 import EditShape from  './Shape/EditShape/EditShape';
-import allShapes from './Shape/shapes';
+// import allShapes from './Shape/shapes';
 
 const Canvas = ({
       active, 
@@ -32,29 +32,29 @@ const Canvas = ({
       requestAnimationFrame(update);
    }
    const updateSnapshots = ()=>{
-      if(!moving && !start){
-         const copyShapes = snapshot.map(shape=>{
-            return new allShapes[shape.constructor.name](
-               shape.ctx,
-               shape.x,
-               shape.y,
-               shape.size,
-               shape.color,
-               shape.width
-            );
-         });
-         const index = snapshots.indexOf(snapshot);
-         console.log('moved');
-         if(
-            index === -1 ||
-            ((index >= 0) && (snapshots.length-1 === index))
-         ){
-            setSnapshots([...snapshots,copyShapes]);
-         }else{
-            setSnapshots([...snapshots.slice(0, index+1),copyShapes]);
-         }
-         setSnapshot(copyShapes);
-      }
+      // if(!moving && !start){
+      //    const copyShapes = snapshot.map(shape=>{
+      //       return new allShapes[shape.constructor.name](
+      //          shape.ctx,
+      //          shape.x,
+      //          shape.y,
+      //          shape.size,
+      //          shape.color,
+      //          shape.width
+      //       );
+      //    });
+      //    const index = snapshots.indexOf(snapshot);
+      //    console.log('moved');
+      //    if(
+      //       index === -1 ||
+      //       ((index >= 0) && (snapshots.length-1 === index))
+      //    ){
+      //       setSnapshots([...snapshots,copyShapes]);
+      //    }else{
+      //       setSnapshots([...snapshots.slice(0, index+1),copyShapes]);
+      //    }
+      //    setSnapshot(copyShapes);
+      // }
    }
    const handleClick = (e)=>{
       if(hoverShape && !editShape){
