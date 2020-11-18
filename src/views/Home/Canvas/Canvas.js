@@ -138,7 +138,6 @@ const Canvas = ({
             onMouseUp={()=>{
                setStart(false);
                setMoving(false);
-               console.log(start, moving)
             }}
             onMouseMove={(e)=>{
                checkHover(e);

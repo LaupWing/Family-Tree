@@ -18,6 +18,9 @@ const Options = ({
       'Circle',
       'Hex'
    ];
+   console.log(snapshots)
+   console.log(snapshot)
+   console.log(snapshots[snapshots.length-1] === snapshot)
    const Forward = icons['Forward'];
    const backward = ()=>{
       const index = snapshots.indexOf(snapshot);
@@ -51,7 +54,7 @@ const Options = ({
             />
             <Forward
                extraClassname={
-                  snapshots[snapshots.length-1] === snapshot ? 
+                  (snapshots.length === 0 || snapshots[snapshots.length-1] === snapshot) ? 
                   styles.disabled :
                   false
                }
