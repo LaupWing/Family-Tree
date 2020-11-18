@@ -31,31 +31,6 @@ const Canvas = ({
       }
       requestAnimationFrame(update);
    }
-   const updateSnapshots = ()=>{
-      // if(!moving && !start){
-         // const copyShapes = snapshot.map(shape=>{
-         //    return new allShapes[shape.constructor.name](
-         //       shape.ctx,
-         //       shape.x,
-         //       shape.y,
-         //       shape.size,
-         //       shape.color,
-         //       shape.width
-         //    );
-         // });
-         // const index = snapshots.indexOf(snapshot);
-         // console.log('moved');
-         // if(
-         //    index === -1 ||
-         //    ((index >= 0) && (snapshots.length-1 === index))
-         // ){
-         //    setSnapshots([...snapshots,copyShapes]);
-         // }else{
-         //    setSnapshots([...snapshots.slice(0, index+1),copyShapes]);
-         // }
-      //    setSnapshot(copyShapes);
-      // }
-   }
    const handleClick = (e)=>{
       if(hoverShape && !editShape){
          setEditShape(hoverShape);
@@ -113,7 +88,7 @@ const Canvas = ({
       canvasRef.current.height = homeContainer.current.offsetHeight;
    }, [homeContainer]);
 
-   useEffect(updateSnapshots,[moving, start]);
+   // useEffect(updateSnapshots,[moving, start]);
 
    update();
    
@@ -163,6 +138,7 @@ const Canvas = ({
             onMouseUp={()=>{
                setStart(false);
                setMoving(false);
+               console.log(start, moving)
             }}
             onMouseMove={(e)=>{
                checkHover(e);
