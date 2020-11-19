@@ -1,8 +1,6 @@
 import React from 'react';
 import icons from '../../../components/Icons';
 import styles from './Options.module.css';
-import { connect } from 'react-redux';
-import * as actionTypes from '../../../store/actions/actionTypes';
 
 const Options = ({
       active, 
@@ -10,8 +8,9 @@ const Options = ({
       snapshot, 
       snapshots,
       setSnapshot,
-      setShapes,
-      setEditShape
+      setEditShape,
+      moving,
+      start
    }) => {
    const options = [
       'Rect',
@@ -24,7 +23,6 @@ const Options = ({
       setEditShape(false);
       if(index!==0){
          setSnapshot(snapshots[index-1]);
-         setShapes(snapshots[index-1]);
       }
    }
    const forward = ()=>{
@@ -32,12 +30,9 @@ const Options = ({
       setEditShape(false);
       if((index+1) < (snapshots.length)){
          setSnapshot(snapshots[index+1]);
-         setShapes(snapshots[index+1]);
       }
    }
-   console.log(JSON.stringify(snapshots[snapshots.length-1]) === JSON.stringify(snapshot))
-   console.log(snapshots[snapshots.length-1])
-   console.log(snapshot)
+   
    return (
       <div className={styles.options}>
          <div className={styles.snapshot}>
@@ -53,7 +48,9 @@ const Options = ({
             />
             <Forward
                extraClassname={
-                  (snapshots.length === 0 || snapshots[snapshots.length-1] === snapshot) ? 
+                  (
+                     snapshots.length === 0 || 
+                     JSON.stringify(snapshots[snapshots.length-1]) === JSON.stringify(snapshot)) || moving || start ? 
                   styles.disabled :
                   false
                }
@@ -79,24 +76,4 @@ const Options = ({
    );
 }
 
-const mapStateToProps = state =>{
-	return {
-		snapshot: state.shapes.snapshot,
-		snapshots: state.shapes.snapshots,
-	};
-}
-
-const mapDispatchToProps= dispatch =>{
-   return {
-      setSnapshot: (snapshot) => dispatch({
-         type:actionTypes.SET_SNAPSHOT, 
-         snapshot
-      }),
-      setShapes: (shapes) => dispatch({
-         type:actionTypes.SET_SHAPES, 
-         shapes
-      })
-   }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Options);
+export default Options;

@@ -15,6 +15,8 @@ const Home = ({
    const [active, setActive] = useState('Rect');
    const [editShape, setEditShape] = useState(false);
    const homeContainer = useRef(null);
+   const [start, setStart] = useState(false);
+   const [moving, setMoving] = useState(false);
 
 	return (
       <div 
@@ -25,6 +27,11 @@ const Home = ({
             active={active}
             setActive={setActive}
             setEditShape={setEditShape}
+            start={start}
+            moving={moving}
+            snapshot={snapshot} 
+            snapshots={snapshots}
+            setSnapshot={setSnapshot}
          />
          <Info
             editShape={editShape}
@@ -40,6 +47,10 @@ const Home = ({
             snapshot={snapshot}
             setSnapshot={setSnapshot}
             setSnapshots={setSnapshots}
+            start={start}
+            setStart={setStart}
+            moving={moving}
+            setMoving={setMoving}
          />
       </div>
    );

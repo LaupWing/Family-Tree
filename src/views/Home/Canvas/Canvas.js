@@ -2,20 +2,21 @@ import React, {useState, useRef, useEffect} from 'react';
 import styles from './Canvas.module.css';
 import NewShape from './Shape/NewShape/NewShape';
 import EditShape from  './Shape/EditShape/EditShape';
-// import allShapes from './Shape/shapes';
 
 const Canvas = ({
       active, 
       homeContainer, 
       setSnapshots,
       setSnapshot,
-      snapshots,
       snapshot,
       setEditShape,
-      editShape
+      editShape,
+      start,
+      setStart,
+      moving,
+      setMoving
    }) => {
-   const [start, setStart] = useState(false);
-   const [moving, setMoving] = useState(false);
+
    const [ctx, setCtx] = useState(false);
    const [hoverShape, setHoverShape] = useState(false);
    const canvasRef = useRef(null);
