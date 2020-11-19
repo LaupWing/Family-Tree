@@ -7,12 +7,10 @@ import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions/actionTypes';
 
 const Home = ({
-      shapes, 
       snapshots, 
       snapshot,
       setSnapshot,
       setSnapshots,
-      setShapes
    })=>{
    const [active, setActive] = useState('Rect');
    const [editShape, setEditShape] = useState(false);
@@ -35,13 +33,11 @@ const Home = ({
          />
          <Canvas
             active={active}
-            shapes={shapes}
             homeContainer={homeContainer}
             editShape={editShape}
             setEditShape={setEditShape}
             snapshots={snapshots}
             snapshot={snapshot}
-            setShapes={setShapes}
             setSnapshot={setSnapshot}
             setSnapshots={setSnapshots}
          />
@@ -51,7 +47,6 @@ const Home = ({
 
 const mapStateToProps = state =>{
 	return {
-		shapes: state.shapes.shapes,
 		snapshot: state.shapes.snapshot,
 		snapshots: state.shapes.snapshots,
 	};
@@ -66,10 +61,6 @@ const mapDispatchToProps= dispatch =>{
       setSnapshot: (snapshot) => dispatch({
          type:actionTypes.SET_SNAPSHOT, 
          snapshot
-      }),
-      setShapes: (shapes) => dispatch({
-         type:actionTypes.SET_SHAPES, 
-         shapes
       })
    }
 }

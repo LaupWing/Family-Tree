@@ -9,10 +9,8 @@ const Canvas = ({
       homeContainer, 
       setSnapshots,
       setSnapshot,
-      shapes,
       snapshots,
       snapshot,
-      setShapes,
       setEditShape,
       editShape
    }) => {
