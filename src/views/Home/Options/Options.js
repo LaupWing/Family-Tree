@@ -35,7 +35,9 @@ const Options = ({
          setShapes(snapshots[index+1]);
       }
    }
-
+   console.log(JSON.stringify(snapshots[snapshots.length-1]) === JSON.stringify(snapshot))
+   console.log(snapshots[snapshots.length-1])
+   console.log(snapshot)
    return (
       <div className={styles.options}>
          <div className={styles.snapshot}>
