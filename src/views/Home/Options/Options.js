@@ -19,15 +19,18 @@ const Options = ({
       'Hex'
    ];
    const Forward = icons['Forward'];
+   const currSnapshot = ()=>{
+      return snapshots.find(x=>JSON.stringify(x)===JSON.stringify(snapshot));
+   }
    const backward = ()=>{
-      const index = snapshots.indexOf(snapshot);
+      const index = snapshots.indexOf(currSnapshot());
       setEditShape(false);
       if(index!==0){
          setSnapshot(snapshots[index-1]);
       }
    }
    const forward = ()=>{
-      const index = snapshots.indexOf(snapshot);
+      const index = snapshots.indexOf(currSnapshot());
       setEditShape(false);
       if((index+1) < (snapshots.length)){
          setSnapshot(snapshots[index+1]);

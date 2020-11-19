@@ -18,6 +18,12 @@ const setSnapshots = (state)=>{
       );
    });
    const index = state.snapshots.indexOf(state.snapshot);
+   if(state.snapshots.length === 0){
+      return{
+         ...state,
+         snapshots:[[], copyShapes]
+      }
+   }
    if(
       index === -1 ||
       ((index >= 0) && (state.snapshots.length-1 === index))
