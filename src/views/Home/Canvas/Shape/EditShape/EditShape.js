@@ -44,7 +44,8 @@ const EditShape = ({
          delta.height + initialResize.height
       );
       const updated = snapshot.map(x=>{
-         if(x===editShape){
+         if(x===editShape && resizing){
+            console.log(resizing - (offset*2))
             x.size = resizing - (offset*2);
          }
          return x;
