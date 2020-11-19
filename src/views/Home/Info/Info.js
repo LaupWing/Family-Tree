@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Info.module.css';
 import Field from './Field/Field';
 
-const Info = ({editShape, setShapes, shapes}) => {
+const Info = ({editShape, setSnapshot, snapshot}) => {
    const fields = [
       {
          default_val: 0,
@@ -36,8 +36,8 @@ const Info = ({editShape, setShapes, shapes}) => {
                key={x.label}
                type={x.type}
                default_val={x.default_val}
-               setShapes={setShapes}
-               shapes={shapes}
+               setSnapshot={setSnapshot}
+               snapshot={snapshot}
             />
          })}
       </div>

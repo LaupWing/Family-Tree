@@ -5,9 +5,7 @@ const Field = ({
       editShape, 
       label, 
       default_val, 
-      type='number', 
-      setShapes, 
-      shapes
+      type='number',
    }) => {
    const updateEdit = (e)=>{
       console.log(editShape);

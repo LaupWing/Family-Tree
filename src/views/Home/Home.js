@@ -30,8 +30,8 @@ const Home = ({
          />
          <Info
             editShape={editShape}
-            setShapes={setShapes}
-            shapes={shapes}
+            setSnapshot={setSnapshot}
+            snapshot={snapshot}
          />
          <Canvas
             active={active}
