@@ -25,6 +25,7 @@ const setSnapshots = (state)=>{
       );
    });
    const index = state.snapshots.indexOf(state.snapshot);
+   console.log(state.snapshots)
    if(
       index === -1 ||
       ((index >= 0) && (state.snapshots.length-1 === index))
@@ -50,7 +51,7 @@ const setSnapshot = (state, snapshot)=>{
 const reducer = (state=initialState, action)=>{
 	switch(action.type){
 		case actionTypes.SET_SHAPES: return setShapes(state, action.shapes);
-		case actionTypes.SET_SNAPSHOTS: return setSnapshots(state, action.snapshots);
+		case actionTypes.SET_SNAPSHOTS: return setSnapshots(state);
 		case actionTypes.SET_SNAPSHOT: return setSnapshot(state, action.snapshot);
 		default:
 			return state;

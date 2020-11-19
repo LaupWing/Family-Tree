@@ -138,6 +138,9 @@ const Canvas = ({
             onMouseUp={()=>{
                setStart(false);
                setMoving(false);
+               if(moving && start){
+                  setSnapshots();
+               }
             }}
             onMouseMove={(e)=>{
                checkHover(e);

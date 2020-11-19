@@ -18,9 +18,6 @@ const Options = ({
       'Circle',
       'Hex'
    ];
-   console.log(snapshots)
-   console.log(snapshot)
-   console.log(snapshots[snapshots.length-1] === snapshot)
    const Forward = icons['Forward'];
    const backward = ()=>{
       const index = snapshots.indexOf(snapshot);
