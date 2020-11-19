@@ -87,9 +87,9 @@ const Canvas = ({
       canvasRef.current.height = homeContainer.current.offsetHeight;
    }, [homeContainer]);
 
-   // useEffect(updateSnapshots,[moving, start]);
-
-   update();
+   useEffect(()=>{
+      update();
+   });
    
    return (
       <>
