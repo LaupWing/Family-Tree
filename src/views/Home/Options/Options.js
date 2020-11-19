@@ -10,7 +10,8 @@ const Options = ({
       setSnapshot,
       setEditShape,
       moving,
-      start
+      start,
+      editShape
    }) => {
    const options = [
       'Rect',
@@ -32,7 +33,7 @@ const Options = ({
          setSnapshot(snapshots[index+1]);
       }
    }
-   
+
    return (
       <div className={styles.options}>
          <div className={styles.snapshot}>
@@ -50,7 +51,11 @@ const Options = ({
                extraClassname={
                   (
                      snapshots.length === 0 || 
-                     JSON.stringify(snapshots[snapshots.length-1]) === JSON.stringify(snapshot)) || moving || start ? 
+                     JSON.stringify(snapshots[snapshots.length-1]) === JSON.stringify(snapshot) || 
+                     moving || 
+                     start || 
+                     editShape
+                  ) ? 
                   styles.disabled :
                   false
                }

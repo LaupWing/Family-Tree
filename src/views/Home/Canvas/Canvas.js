@@ -107,7 +107,7 @@ const Canvas = ({
          }
          {editShape && 
             <EditShape
-               editing={editShape}
+               editShape={editShape}
                setEditShape={setEditShape}
                canvasRef={canvasRef}
                offset={offset}
@@ -117,6 +117,7 @@ const Canvas = ({
                setMoving={setMoving}
                snapshot={snapshot}
                setSnapshot={setSnapshot}
+               setSnapshots={setSnapshots}
             />
          }
          <canvas 

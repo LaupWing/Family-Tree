@@ -32,6 +32,7 @@ const Home = ({
             snapshot={snapshot} 
             snapshots={snapshots}
             setSnapshot={setSnapshot}
+            editShape={editShape}
          />
          <Info
             editShape={editShape}

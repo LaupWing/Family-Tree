@@ -6,7 +6,7 @@ import Resize from '../../../../../components/Icons/Resize/Resize';
 
 const EditShape = ({
       offset, 
-      editing,
+      editShape,
       start,
       setStart,
       moving,
@@ -14,6 +14,7 @@ const EditShape = ({
       canvasRef,
       snapshot,
       setSnapshot,
+      setSnapshots,
       targetRef
    }) => {
    const {left} = canvasRef.current.getBoundingClientRect();
@@ -27,7 +28,7 @@ const EditShape = ({
          const updateLeft = moving.left-startPoint.left;
          const updateTop = moving.top-startPoint.top;
          const updated = snapshot.map(x=>{
-            if(x===editing){
+            if(x===editShape){
                x.x = start.left + updateLeft - offset;
                x.y = start.top + updateTop - offset;
             }
@@ -43,7 +44,7 @@ const EditShape = ({
          delta.height + initialResize.height
       );
       const updated = snapshot.map(x=>{
-         if(x===editing){
+         if(x===editShape){
             x.size = resizing - (offset*2);
          }
          return x;
@@ -52,12 +53,12 @@ const EditShape = ({
    }
 
    const pos =  {
-      'left': `${(editing.x)-offset}px`,
-      'top': `${editing.y-offset}px`,
+      'left': `${(editShape.x)-offset}px`,
+      'top': `${editShape.y-offset}px`,
    }
    const size = {
-      'width': !resizing ? editing.size+(offset*2): resizing,
-      'height': !resizing ? editing.size+(offset*2): resizing
+      'width': !resizing ? editShape.size+(offset*2): resizing,
+      'height': !resizing ? editShape.size+(offset*2): resizing
    }
    
    useEffect(updatePos, [moving])
@@ -67,8 +68,8 @@ const EditShape = ({
          className={`${styles.shape} ${resize ? styles.resize : ''}`}
          ref={targetRef}
          size={{
-            width: editing.size+(offset*2),
-            height: editing.size+(offset*2)
+            width: editShape.size+(offset*2),
+            height: editShape.size+(offset*2)
          }}
          onResize={updateSize}
          onResizeStart={()=>setInitialResize(size)}
@@ -81,8 +82,8 @@ const EditShape = ({
             if(!start && !resize){
                e.persist();
                setStart({
-                  left: (editing.x)-offset,
-                  top: editing.y-offset
+                  left: (editShape.x)-offset,
+                  top: editShape.y-offset
                });
                setStartPoint({
                   left: e.clientX - left - offset,
@@ -95,6 +96,10 @@ const EditShape = ({
             setMoving(false);
             setResizing(false);
             setInitialResize(false);
+
+            if((start && moving) || (resizing && initialResize)){
+               setSnapshots();
+            }
          }}
          onMouseMove={(e)=>{
             if(start){
