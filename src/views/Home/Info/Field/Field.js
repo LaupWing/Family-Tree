@@ -6,9 +6,14 @@ const Field = ({
       label, 
       default_val, 
       type='number',
+      setSnapshot,
+      snapshot
    }) => {
    const updateEdit = (e)=>{
-      console.log(editShape);
+      const updateSnapshot = snapshot.find(x=>x===editShape);
+      updateSnapshot[label] = e.target.value;
+      // console.log(snapshot);
+      // console.log(editShape);
       console.log(label);
       console.log(e.target.value);
    }
